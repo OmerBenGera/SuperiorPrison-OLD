@@ -1,0 +1,7 @@
+name: SuperiorPlugin
+version: 1.0
+api-version: 1.13
+main: xyz.wildseries.prison.SuperiorPrisonPlugin
+description: Highly advanced prison core plugin
+website: http://wildseries.xyz/
+authors: [Ome_R, WildSeries]
