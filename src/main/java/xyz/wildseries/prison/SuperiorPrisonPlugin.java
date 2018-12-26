@@ -2,6 +2,7 @@ package xyz.wildseries.prison;
 
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.wildseries.prison.commands.TestCommand;
 
 import java.util.logging.Level;
 
@@ -13,6 +14,8 @@ public class SuperiorPrisonPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         plugin = this;
+
+        new TestCommand(this);
     }
 
     public static void log(String message){

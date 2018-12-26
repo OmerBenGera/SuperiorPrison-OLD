@@ -5,3 +5,9 @@ main: xyz.wildseries.prison.SuperiorPrisonPlugin
 description: Highly advanced prison core plugin
 website: http://wildseries.xyz/
 authors: [Ome_R, WildSeries]
+
+commands:
+  test:
+    aliases:
+      - tst
+      - t
