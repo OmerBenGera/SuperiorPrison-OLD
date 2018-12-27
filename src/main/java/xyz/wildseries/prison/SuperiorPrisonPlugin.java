@@ -2,23 +2,27 @@ package xyz.wildseries.prison;
 
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
+import xyz.wildseries.prison.managers.Manager;
 
 import java.util.logging.Level;
 
 @Getter
 public class SuperiorPrisonPlugin extends JavaPlugin {
 
-    @Getter private static SuperiorPrisonPlugin plugin;
+    @Getter private static SuperiorPrisonPlugin instance;
+
+    private Manager manager;
 
     @Override
     public void onEnable() {
-        plugin = this;
+        instance = this;
 
-        new TestCommand(this);
+        manager = new Manager();
+        manager.load();
     }
 
-    public static void log(String message){
-        plugin.getLogger().log(Level.INFO, message);
+    @Override
+    public void onDisable() {
+        manager.save();
     }
-
 }

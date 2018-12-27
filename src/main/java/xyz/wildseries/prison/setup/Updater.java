@@ -12,7 +12,7 @@ import java.net.URL;
 @SuppressWarnings("WeakerAccess")
 public final class Updater {
 
-    private static SuperiorPrisonPlugin plugin = SuperiorPrisonPlugin.getPlugin();
+    private static SuperiorPrisonPlugin plugin = SuperiorPrisonPlugin.getInstance();
     private static String latestVersion, versionDescription;
 
     static{
@@ -41,7 +41,7 @@ public final class Updater {
 
             try(InputStream reader = connection.getInputStream()){
                 JsonObject jsonObject = new Gson().fromJson(new InputStreamReader(reader), JsonObject.class);
-                JsonObject plugin = jsonObject.get("wildbuster").getAsJsonObject();
+                JsonObject plugin = jsonObject.get("superiorprison").getAsJsonObject();
                 latestVersion = plugin.get("version").getAsString();
                 versionDescription = plugin.get("description").getAsString();
             }
