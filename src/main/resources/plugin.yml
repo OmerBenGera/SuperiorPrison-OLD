@@ -7,7 +7,6 @@ website: http://wildseries.xyz/
 authors: [Ome_R, WildSeries]
 
 commands:
-  test:
-    aliases:
-      - tst
-      - t
+  ranks:
+    description: List of ranks
+    aliases: rank

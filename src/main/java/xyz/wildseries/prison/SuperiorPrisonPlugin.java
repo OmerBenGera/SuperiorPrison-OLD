@@ -17,7 +17,7 @@ public class SuperiorPrisonPlugin extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
-        manager = new Manager();
+        manager = new Manager(this);
         manager.load();
     }
 

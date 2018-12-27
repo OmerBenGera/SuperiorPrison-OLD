@@ -8,12 +8,13 @@ import java.util.UUID;
 public class Prisoner {
 
     private UUID uuid;
-    private Player player;
 
     public Prisoner(UUID uuid) {
         this.uuid = uuid;
-        player = Bukkit.getPlayer(uuid);
+    }
 
+    public Player getPlayer() {
+        return Bukkit.getPlayer(uuid);
     }
 
 }

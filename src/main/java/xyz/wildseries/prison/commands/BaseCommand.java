@@ -12,7 +12,7 @@ import java.util.List;
 
 public abstract class BaseCommand extends SubCommand implements CommandExecutor, TabCompleter {
 
-    public BaseCommand(Permission permission, SuperiorPrisonPlugin plugin, String... names) {
+    public BaseCommand(SuperiorPrisonPlugin plugin, Permission permission, String... names) {
         super(permission, names);
 
         plugin.getCommand(names[0]).setExecutor(this);

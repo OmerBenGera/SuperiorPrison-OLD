@@ -3,6 +3,7 @@ package xyz.wildseries.prison.player;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
+import xyz.wildseries.prison.SuperiorPrisonPlugin;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,13 +24,16 @@ public class Rank implements ConfigurationSerializable {
         prefix = "[" + id + "]";
         price = 0;
         next = null;
+
+        SuperiorPrisonPlugin.getInstance().getManager().getRankManager().getRanks().add(this);
     }
 
     public Rank(Map<String, Object> map) {
         id = (String) map.get("id");
         prefix = (String) map.get("prefix");
         price = (double) map.get("price");
-        // TODO load next
+
+        SuperiorPrisonPlugin.getInstance().getManager().getRankManager().getRanks().add(this);
     }
 
     @Override
