@@ -1,7 +1,8 @@
-package xyz.wildseries.prison;
+package xyz.wildseries.prison.setup;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import xyz.wildseries.prison.SuperiorPrisonPlugin;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;

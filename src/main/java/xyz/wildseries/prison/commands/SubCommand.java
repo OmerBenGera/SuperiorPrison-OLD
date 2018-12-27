@@ -2,6 +2,7 @@ package xyz.wildseries.prison.commands;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.util.StringUtil;
+import xyz.wildseries.prison.setup.Permission;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -11,21 +12,24 @@ import java.util.Set;
 
 public abstract class SubCommand {
 
+    protected Permission permission;
+
     protected String[] names;
 
     protected Set<SubCommand> subs;
 
-    public SubCommand(String... names) {
+    public SubCommand(Permission permission, String... names) {
+        this.permission = permission;
         this.names = names;
         subs = new HashSet<>();
     }
 
     @SuppressWarnings("all")
     public List<String> getCompletionOptions(CommandSender sender, String message) {
-        List<String> options = new ArrayList<>();
+        List<String> options = getOptions();
 
         for (SubCommand sub : subs) {
-            if (!sub.hasPermission(sender))
+            if (sub.permission != null && !sub.permission.hasPermission(sender))
                 continue;
 
             for (String name : sub.names)
@@ -44,7 +48,7 @@ public abstract class SubCommand {
         return false;
     }
 
-    private SubCommand getSubCommand(String name) {
+    protected SubCommand getSubCommand(String name) {
         for (SubCommand sub : subs)
             if (sub.isName(name))
                 return sub;
@@ -57,7 +61,6 @@ public abstract class SubCommand {
         if (sub == null)
             return false;
 
-
         String[] newArgs = new String[args.length - 1];
         for (int i = 1; i < args.length; i++)
             newArgs[i - 1] = args[i];
@@ -66,8 +69,8 @@ public abstract class SubCommand {
         return true;
     }
 
-    public abstract boolean hasPermission(CommandSender sender);
-
     public abstract void execute(CommandSender sender, String[] args);
+
+    public List<String> getOptions() {return new ArrayList<>();}
 
 }
