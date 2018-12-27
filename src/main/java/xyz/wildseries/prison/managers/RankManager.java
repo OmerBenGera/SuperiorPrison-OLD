@@ -1,14 +1,12 @@
 package xyz.wildseries.prison.managers;
 
 import lombok.Getter;
+import lombok.Setter;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.configuration.ConfigFile;
 import xyz.wildseries.prison.player.Rank;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 public class RankManager implements BaseManager {
@@ -16,7 +14,7 @@ public class RankManager implements BaseManager {
     private SuperiorPrisonPlugin loader;
 
     private Set<Rank> ranks;
-    private Rank defaultRank;
+    @Setter private Rank defaultRank;
 
     public RankManager(SuperiorPrisonPlugin loader) {
         this.loader = loader;
@@ -45,6 +43,19 @@ public class RankManager implements BaseManager {
     @Override
     public void save() {
 
+    }
+
+    public List<Rank> listRanks() {
+        List<Rank> list = new ArrayList<>();
+
+        Rank rank = defaultRank;
+
+        while (rank != null) {
+            list.add(rank);
+            rank = rank.getNext();
+        }
+
+        return list;
     }
 
     public Rank getRank(String name) {
