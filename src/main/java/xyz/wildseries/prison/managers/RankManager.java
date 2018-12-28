@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.configuration.ConfigFile;
-import xyz.wildseries.prison.player.Rank;
+import xyz.wildseries.prison.objects.Rank;
 
 import java.util.*;
 
@@ -32,11 +32,11 @@ public class RankManager implements BaseManager {
         for (Map<?, ?> map : file.getBukkitConfig().getMapList("ranks"))
             nextMap.put(new Rank((Map<String, Object>) map), (String) map.get("next"));
 
-        // Loading the rank's next step
+        // Loading the ranks's next step
         for (Rank rank : nextMap.keySet())
             rank.setNext(getRank(nextMap.get(rank)));
 
-        // Loading the default rank
+        // Loading the default ranks
         defaultRank = getRank(file.getBukkitConfig().getString("default_rank"));
     }
 

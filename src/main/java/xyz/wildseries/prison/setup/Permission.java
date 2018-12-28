@@ -6,8 +6,8 @@ import org.bukkit.command.CommandSender;
 @Getter
 public enum Permission {
 
-    CMD_RANK("superiorprison.command.rank.normal"),
-    CMD_RANK_ADMIN("superiorprison.command.rank.admin");
+    CMD_RANK("superiorprison.commands.ranks.normal"),
+    CMD_RANK_ADMIN("superiorprison.commands.ranks.admin");
 
     private String permission;
 

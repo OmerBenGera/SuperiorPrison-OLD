@@ -1,4 +1,4 @@
-package xyz.wildseries.prison.player;
+package xyz.wildseries.prison.objects;
 
 import lombok.Getter;
 import org.bukkit.Bukkit;

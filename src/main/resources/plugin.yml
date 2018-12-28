@@ -9,4 +9,4 @@ authors: [Ome_R, WildSeries]
 commands:
   ranks:
     description: List of ranks
-    aliases: rank
+    aliases: ranks

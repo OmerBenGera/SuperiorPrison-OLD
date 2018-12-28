@@ -4,7 +4,7 @@ import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
-import xyz.wildseries.prison.player.Prisoner;
+import xyz.wildseries.prison.objects.Prisoner;
 
 import java.util.HashSet;
 import java.util.Set;

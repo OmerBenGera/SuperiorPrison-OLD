@@ -4,7 +4,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import xyz.wildseries.prison.gui.menus.ListMenu;
 import xyz.wildseries.prison.gui.menus.Menu;
 import xyz.wildseries.prison.gui.menus.ranks.RankEditor;
-import xyz.wildseries.prison.player.Rank;
+import xyz.wildseries.prison.objects.Rank;
 import xyz.wildseries.prison.utils.ItemUtils;
 import xyz.wildseries.prison.utils.XMaterial;
 

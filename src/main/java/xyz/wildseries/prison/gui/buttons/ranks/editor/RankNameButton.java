@@ -4,7 +4,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.gui.buttons.ranks.RankButton;
 import xyz.wildseries.prison.gui.menus.ranks.RankEditor;
-import xyz.wildseries.prison.tasks.player.edit.RankNameEditTask;
+import xyz.wildseries.prison.tasks.player.edit.ranks.RankNameEditTask;
 import xyz.wildseries.prison.utils.ItemUtils;
 import xyz.wildseries.prison.utils.XMaterial;
 

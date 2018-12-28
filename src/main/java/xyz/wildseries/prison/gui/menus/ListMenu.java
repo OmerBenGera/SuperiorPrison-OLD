@@ -18,8 +18,6 @@ public class ListMenu extends Menu {
         super(player, 4, title);
         this.listItems = listItems;
         index = 0;
-
-        update();
     }
 
     public void scroll(int i) {

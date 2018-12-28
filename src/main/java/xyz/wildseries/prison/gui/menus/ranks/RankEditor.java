@@ -6,9 +6,12 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import xyz.wildseries.prison.gui.MenuItem;
 import xyz.wildseries.prison.gui.buttons.general.ExitButton;
 import xyz.wildseries.prison.gui.buttons.general.ReturnButton;
+import xyz.wildseries.prison.gui.buttons.ranks.editor.CommandsMenuButton;
 import xyz.wildseries.prison.gui.buttons.ranks.editor.RankNameButton;
+import xyz.wildseries.prison.gui.buttons.ranks.editor.RankPrefixButton;
+import xyz.wildseries.prison.gui.buttons.ranks.editor.RankPriceButton;
 import xyz.wildseries.prison.gui.menus.Menu;
-import xyz.wildseries.prison.player.Rank;
+import xyz.wildseries.prison.objects.Rank;
 
 @Getter
 public class RankEditor extends Menu {
@@ -31,7 +34,10 @@ public class RankEditor extends Menu {
         });
         setButton(41, new ExitButton(this));
 
+        setButton(10, new RankPriceButton(this));
+        setButton(16, new CommandsMenuButton(this));
         setButton(21, new RankNameButton(this));
+        setButton(23, new RankPrefixButton(this));
     }
 
 }

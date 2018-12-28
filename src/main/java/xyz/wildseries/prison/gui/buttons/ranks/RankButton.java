@@ -4,7 +4,7 @@ import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 import xyz.wildseries.prison.gui.buttons.Button;
 import xyz.wildseries.prison.gui.menus.Menu;
-import xyz.wildseries.prison.player.Rank;
+import xyz.wildseries.prison.objects.Rank;
 
 @Getter
 public abstract class RankButton extends Button {

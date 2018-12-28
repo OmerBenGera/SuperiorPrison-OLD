@@ -8,7 +8,7 @@ import xyz.wildseries.prison.gui.buttons.general.ExitButton;
 import xyz.wildseries.prison.gui.buttons.ranks.CreateRankButton;
 import xyz.wildseries.prison.gui.buttons.ranks.RankAdminDisplayButton;
 import xyz.wildseries.prison.gui.menus.ListMenu;
-import xyz.wildseries.prison.player.Rank;
+import xyz.wildseries.prison.objects.Rank;
 
 import java.util.ArrayList;
 import java.util.List;

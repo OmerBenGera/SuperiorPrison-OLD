@@ -10,7 +10,7 @@ import xyz.wildseries.prison.setup.Permission;
 public class RanksCommand extends BaseCommand {
 
     public RanksCommand(SuperiorPrisonPlugin plugin) {
-        super(plugin, Permission.CMD_RANK ,"ranks", "rank");
+        super(plugin, Permission.CMD_RANK ,"ranks", "ranks");
 
         subs.add(new AdminSubCommand());
     }
@@ -26,7 +26,7 @@ public class RanksCommand extends BaseCommand {
         if (args.length == 1) {
 
             if (!executeNext(sender, args))
-                Message.CMD_INVALID_USAGE.send(sender, "command:/prison help");
+                Message.CMD_INVALID_USAGE.send(sender, "commands:/prison help");
 
             return;
         }

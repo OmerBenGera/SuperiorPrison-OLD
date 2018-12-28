@@ -7,7 +7,7 @@ import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.managers.PlayerManager;
-import xyz.wildseries.prison.player.Prisoner;
+import xyz.wildseries.prison.objects.Prisoner;
 import xyz.wildseries.prison.tasks.Task;
 import xyz.wildseries.prison.tasks.types.ChatTask;
 
