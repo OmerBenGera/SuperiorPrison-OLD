@@ -2,6 +2,7 @@ package xyz.wildseries.prison.managers;
 
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.listeners.MenuListener;
+import xyz.wildseries.prison.listeners.PlayerListener;
 
 public class ListenerManager implements BaseManager {
 
@@ -11,6 +12,7 @@ public class ListenerManager implements BaseManager {
         this.loader = loader;
 
         new MenuListener(loader);
+        new PlayerListener(loader);
     }
 
     @Override

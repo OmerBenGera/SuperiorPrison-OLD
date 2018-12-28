@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="SuperiorPrison:jar">
-    <output-path>$USER_HOME$/Server/1.13.2/plugins</output-path>
-    <root id="archive" name="SuperiorPrison.jar">
-      <element id="module-output" name="SuperiorPrison" />
-    </root>
-  </artifact>
-</component>
