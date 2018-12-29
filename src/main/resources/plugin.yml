@@ -1,4 +1,4 @@
-name: SuperiorPlugin
+name: SuperiorPrison
 version: 1.0
 api-version: 1.13
 main: xyz.wildseries.prison.SuperiorPrisonPlugin
@@ -9,4 +9,4 @@ authors: [Ome_R, WildSeries]
 commands:
   ranks:
     description: List of ranks
-    aliases: ranks
+    aliases: rank

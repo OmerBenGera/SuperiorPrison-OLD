@@ -12,7 +12,9 @@ import java.util.*;
 @Setter
 public class Rank implements ConfigurationSerializable {
 
-    private String id;
+    private UUID uuid;
+
+    private String name;
     private String prefix;
 
     private double price;
@@ -25,15 +27,16 @@ public class Rank implements ConfigurationSerializable {
         RankManager manager = SuperiorPrisonPlugin.getInstance().getManager().getRankManager();
         List<Rank> ranks = manager.listRanks();
 
-        this.id = "Rank #" + (ranks.size() + 1);
-        prefix = "[" + id + "]";
+        uuid = UUID.randomUUID();
+        name = "Rank #" + (ranks.size() + 1);
+        prefix = "[" + name + "]";
         price = 0;
         next = null;
         commands = new HashSet<>();
 
         int count = 1;
-        while (manager.getRank(id) != null) {
-            id = "Rank #" + (ranks.size() + 1) + " (" + count + ")";
+        while (manager.getRank(name) != null) {
+            name = "Rank #" + (ranks.size() + 1) + " (" + count + ")";
             count++;
         }
 
@@ -47,7 +50,8 @@ public class Rank implements ConfigurationSerializable {
 
     @SuppressWarnings("unchecked")
     public Rank(Map<String, Object> map) {
-        id = (String) map.get("id");
+        uuid = UUID.fromString((String) map.get("uuid"));
+        name = (String) map.get("name");
         prefix = (String) map.get("prefix");
         price = (double) map.get("price");
         commands = new HashSet<>();
@@ -63,12 +67,14 @@ public class Rank implements ConfigurationSerializable {
         Map<String, Object> map = new HashMap<>();
 
         List<String> commands = new ArrayList<>();
-        this.commands.forEach(command -> commands.add(command.toString()));
+        for (Command command : this.commands)
+            commands.add(command.toString());
 
-        map.put("id", id);
+        map.put("uuid", uuid.toString());
+        map.put("name", name);
         map.put("prefix", prefix);
         map.put("price", price);
-        map.put("next", hasNext() ? next.getId() : "~none");
+        map.put("next", hasNext() ? next.getUuid().toString() : "none");
         map.put("commands", commands);
 
         return map;
@@ -93,6 +99,22 @@ public class Rank implements ConfigurationSerializable {
             manager.setDefaultRank(next);
 
         manager.getRanks().remove(this);
+    }
+
+    public boolean isHigherThan(Rank rank) {
+        boolean found = false;
+
+        while (rank != null) {
+
+            if (rank.equals(this)) {
+                found = true;
+                break;
+            }
+
+            rank = rank.getNext();
+        }
+
+        return found;
     }
 
     public boolean hasNext() {

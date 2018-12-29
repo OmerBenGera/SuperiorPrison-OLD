@@ -52,7 +52,7 @@ public class RankNameEditTask extends PlayerTask implements ChatTask {
             return;
         }
 
-        rank.setId(event.getMessage());
+        rank.setName(event.getMessage());
 
         end();
     }

@@ -11,7 +11,7 @@ import xyz.wildseries.prison.utils.XMaterial;
 public class RankAdminDisplayButton extends RankButton {
 
     public RankAdminDisplayButton(Menu menu, Rank rank) {
-        super(menu, rank, ItemUtils.build(XMaterial.BOOK, "§7§nRank:§e " + rank.getId(), "", "§aLeft-Click to Edit", "§cRight-Click to Remove"));
+        super(menu, rank, ItemUtils.build(XMaterial.BOOK, "§7§nRank:§e " + rank.getName(), "", "§aLeft-Click to Edit", "§cRight-Click to Remove"));
     }
 
     @Override

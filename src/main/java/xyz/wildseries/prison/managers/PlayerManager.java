@@ -31,7 +31,7 @@ public class PlayerManager implements BaseManager {
 
     @Override
     public void save() {
-        for (Prisoner prisoner : players)
+        for (Prisoner prisoner : new HashSet<>(players))
             prisoner.unload();
     }
 

@@ -4,6 +4,8 @@ import lombok.Getter;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.configuration.ConfigFile;
 
+import java.io.File;
+
 @Getter
 public class FileManager implements BaseManager {
 
@@ -17,6 +19,14 @@ public class FileManager implements BaseManager {
 
     @Override
     public void load() {
+        File dataFolder = loader.getDataFolder();
+        File playersFolder = new File(dataFolder, "players");
+
+        if (!dataFolder.exists())
+            dataFolder.mkdirs();
+        if (!playersFolder.exists())
+            playersFolder.mkdirs();
+
         ranksYaml = new ConfigFile("ranks.yml", loader.getDataFolder());
     }
 

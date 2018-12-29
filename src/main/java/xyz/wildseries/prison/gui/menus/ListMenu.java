@@ -3,7 +3,6 @@ package xyz.wildseries.prison.gui.menus;
 import org.bukkit.entity.Player;
 import xyz.wildseries.prison.gui.MenuItem;
 import xyz.wildseries.prison.gui.buttons.Button;
-import xyz.wildseries.prison.gui.buttons.general.ExitButton;
 import xyz.wildseries.prison.gui.buttons.general.ScrollButton;
 
 import java.util.List;

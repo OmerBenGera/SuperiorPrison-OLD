@@ -11,7 +11,7 @@ import xyz.wildseries.prison.utils.XMaterial;
 public class RankNameButton extends RankButton {
 
     public RankNameButton(RankEditor menu) {
-        super(menu, menu.getRank(), ItemUtils.build(XMaterial.NAME_TAG, "§e§lChange Name", "", "§7Value: §e" + menu.getRank().getId(), "", "§aClick to Edit"));
+        super(menu, menu.getRank(), ItemUtils.build(XMaterial.NAME_TAG, "§e§lChange Name", "", "§7Value: §e" + menu.getRank().getName(), "", "§aClick to Edit"));
     }
 
     @Override

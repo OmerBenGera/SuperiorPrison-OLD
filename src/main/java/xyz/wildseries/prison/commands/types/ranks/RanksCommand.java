@@ -4,13 +4,14 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.commands.BaseCommand;
+import xyz.wildseries.prison.gui.menus.ranks.RanksMenu;
 import xyz.wildseries.prison.setup.Message;
 import xyz.wildseries.prison.setup.Permission;
 
 public class RanksCommand extends BaseCommand {
 
     public RanksCommand(SuperiorPrisonPlugin plugin) {
-        super(plugin, Permission.CMD_RANK ,"ranks", "ranks");
+        super(plugin, Permission.CMD_RANK ,"ranks", "rank");
 
         subs.add(new AdminSubCommand());
     }
@@ -23,6 +24,8 @@ public class RanksCommand extends BaseCommand {
             return;
         }
 
+        Player player = (Player) sender;
+
         if (args.length == 1) {
 
             if (!executeNext(sender, args))
@@ -31,7 +34,7 @@ public class RanksCommand extends BaseCommand {
             return;
         }
 
-        // TODO open ranks menu
+        new RanksMenu(player).open();
 
     }
 }

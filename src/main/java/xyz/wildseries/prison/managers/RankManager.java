@@ -34,15 +34,26 @@ public class RankManager implements BaseManager {
 
         // Loading the ranks's next step
         for (Rank rank : nextMap.keySet())
-            rank.setNext(getRank(nextMap.get(rank)));
+            if (!nextMap.get(rank).equalsIgnoreCase("none"))
+                rank.setNext(getRank(UUID.fromString(nextMap.get(rank))));
 
         // Loading the default ranks
-        defaultRank = getRank(file.getBukkitConfig().getString("default_rank"));
+        defaultRank = !file.getBukkitConfig().contains("default_rank") || file.getBukkitConfig().get("default_rank").equals("none") ?
+                    null :
+                    getRank(UUID.fromString(file.getBukkitConfig().getString("default_rank")));
     }
 
     @Override
     public void save() {
+        List<Map<String, Object>> list = new ArrayList<>();
 
+        for (Rank rank : ranks)
+            list.add(rank.serialize());
+
+        ConfigFile file = loader.getManager().getFileManager().getRanksYaml();
+
+        file.getBukkitConfig().set("ranks", list);
+        file.getBukkitConfig().set("default_rank", defaultRank == null ? "none" : defaultRank.getUuid().toString());
     }
 
     public List<Rank> listRanks() {
@@ -60,9 +71,15 @@ public class RankManager implements BaseManager {
 
     public Rank getRank(String name) {
         for (Rank rank : ranks)
-            if (rank.getId().equalsIgnoreCase(name))
+            if (rank.getName().equalsIgnoreCase(name))
                 return rank;
         return null;
     }
 
+    public Rank getRank(UUID uuid) {
+        for (Rank rank : ranks)
+            if (rank.getUuid().equals(uuid))
+                return rank;
+        return null;
+    }
 }
