@@ -7,6 +7,8 @@ import org.bukkit.entity.Player;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.configuration.PlayerFile;
 import xyz.wildseries.prison.managers.RankManager;
+import xyz.wildseries.prison.setup.Message;
+import xyz.wildseries.prison.setup.Setting;
 import xyz.wildseries.prison.tasks.Task;
 
 import java.util.*;
@@ -53,6 +55,14 @@ public class Prisoner implements ConfigurationSerializable {
         SuperiorPrisonPlugin.getInstance().getManager().getPlayerManager().getPlayers().remove(this);
     }
 
+    public void rankup() {
+        takeMoney(getNextRank().getPrice());
+
+        rank = getNextRank();
+
+        Message.RANKUP_BROADCAST.broadcast("name:" + getPlayer().getName() + ",display_name:" + getPlayer().getDisplayName() + ",rank_name:" + rank.getName());
+    }
+
     public Rank getNextRank() {
         return rank == null ? SuperiorPrisonPlugin.getInstance().getManager().getRankManager().getDefaultRank() : rank.getNext();
     }
@@ -63,5 +73,26 @@ public class Prisoner implements ConfigurationSerializable {
 
     public boolean isOnline() {
         return getPlayer() != null;
+    }
+
+    public double getBalance() {
+        return SuperiorPrisonPlugin.getEconomy().getBalance(getPlayer());
+    }
+
+    public boolean hasEnoughMoney(double amount) {
+        return SuperiorPrisonPlugin.getEconomy().getBalance(getPlayer()) >= amount;
+    }
+
+    public void giveMoney(double amount) {
+        SuperiorPrisonPlugin.getEconomy().depositPlayer(getPlayer(), amount);
+    }
+
+    public boolean takeMoney(double amount) {
+        if (!hasEnoughMoney(amount))
+            return false;
+
+        SuperiorPrisonPlugin.getEconomy().withdrawPlayer(getPlayer(), amount);
+
+        return true;
     }
 }

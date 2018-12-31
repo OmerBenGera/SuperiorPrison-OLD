@@ -5,8 +5,12 @@ main: xyz.wildseries.prison.SuperiorPrisonPlugin
 description: Highly advanced prison core plugin
 website: http://wildseries.xyz/
 authors: [Ome_R, WildSeries]
+depend: [Vault]
 
 commands:
   ranks:
     description: List of ranks
     aliases: rank
+  rankup:
+    description: Upgrade your rank
+    aliases: rankupgrade

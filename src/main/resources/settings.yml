@@ -1,0 +1,13 @@
+##---------------------------##
+## SUPERIOR PLUGIN           ##
+##       a WildSeries Plugin ##
+##---------------------------##
+
+##---------------##
+## RANK SETTINGS ##
+##---------------##
+
+rank_progress_bar:
+  enabled: true
+  color: RED
+  style: SOLID

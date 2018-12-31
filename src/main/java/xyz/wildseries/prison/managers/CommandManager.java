@@ -1,6 +1,7 @@
 package xyz.wildseries.prison.managers;
 
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
+import xyz.wildseries.prison.commands.types.rankup.RankUpCommand;
 import xyz.wildseries.prison.commands.types.ranks.RanksCommand;
 
 public class CommandManager implements BaseManager {
@@ -11,6 +12,7 @@ public class CommandManager implements BaseManager {
         this.loader = loader;
 
         new RanksCommand(loader);
+        new RankUpCommand(loader);
     }
 
     @Override

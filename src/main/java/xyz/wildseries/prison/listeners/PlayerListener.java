@@ -36,6 +36,13 @@ public class PlayerListener extends BaseListener {
                 ((ChatTask) task).onPlayerChat(event);
     }
 
+    @EventHandler (priority = EventPriority.HIGHEST)
+    public void onAsyncPlayerChat(AsyncPlayerChatEvent event) {
+        Prisoner prisoner = getManager().getPrisoner(event.getPlayer());
+
+        event.setFormat(event.getFormat().replace("{PRISON_RANK}", (prisoner.getRank() == null ? "" : prisoner.getRank().getPrefix()) + "§r"));
+    }
+
     private PlayerManager getManager() {
         return loader.getManager().getPlayerManager();
     }

@@ -10,9 +10,11 @@ public class PlaceholdersUtils {
 
         String[] replaced = new String[message.length];
 
-        for (int i = 0; i < message.length; i++)
+        for (int i = 0; i < message.length; i++) {
+            replaced[i] = message[i];
             for (String holder : deserialized.keySet())
-                replaced[i] = message[i].replace("%" + holder, deserialized.get(holder));
+                replaced[i] = replaced[i].replace("%" + holder, deserialized.get(holder));
+        }
 
         return replaced;
     }

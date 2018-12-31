@@ -28,6 +28,13 @@ public class RanksMenu extends ListMenu {
 
     }
 
+    @Override
+    public void update() {
+        listItems = getListItems();
+
+        super.update();
+    }
+
     private List<Button> getListItems() {
         List<Button> list = new ArrayList<>();
 

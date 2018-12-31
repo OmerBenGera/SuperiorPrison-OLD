@@ -11,6 +11,7 @@ public class FileManager implements BaseManager {
 
     private SuperiorPrisonPlugin loader;
 
+    private ConfigFile settingsYaml;
     private ConfigFile ranksYaml;
 
     public FileManager(SuperiorPrisonPlugin loader) {
@@ -27,6 +28,7 @@ public class FileManager implements BaseManager {
         if (!playersFolder.exists())
             playersFolder.mkdirs();
 
+        settingsYaml = new ConfigFile("settings.yml", loader.getDataFolder());
         ranksYaml = new ConfigFile("ranks.yml", loader.getDataFolder());
     }
 
