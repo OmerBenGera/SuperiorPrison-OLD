@@ -7,8 +7,8 @@ import org.bukkit.entity.Player;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.configuration.PlayerFile;
 import xyz.wildseries.prison.managers.RankManager;
+import xyz.wildseries.prison.objects.ranks.Rank;
 import xyz.wildseries.prison.setup.Message;
-import xyz.wildseries.prison.setup.Setting;
 import xyz.wildseries.prison.tasks.Task;
 
 import java.util.*;

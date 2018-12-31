@@ -5,7 +5,7 @@ import org.bukkit.entity.Player;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.commands.BaseCommand;
 import xyz.wildseries.prison.objects.Prisoner;
-import xyz.wildseries.prison.objects.Rank;
+import xyz.wildseries.prison.objects.ranks.Rank;
 import xyz.wildseries.prison.setup.Message;
 import xyz.wildseries.prison.setup.Permission;
 

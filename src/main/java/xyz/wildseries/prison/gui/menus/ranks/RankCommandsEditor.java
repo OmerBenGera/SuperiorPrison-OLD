@@ -10,8 +10,8 @@ import xyz.wildseries.prison.gui.buttons.general.ReturnButton;
 import xyz.wildseries.prison.gui.buttons.ranks.editor.commands.CommandButton;
 import xyz.wildseries.prison.gui.buttons.ranks.editor.commands.CreateCommandButton;
 import xyz.wildseries.prison.gui.menus.ListMenu;
-import xyz.wildseries.prison.objects.Command;
-import xyz.wildseries.prison.objects.Rank;
+import xyz.wildseries.prison.objects.ranks.Command;
+import xyz.wildseries.prison.objects.ranks.Rank;
 
 import java.util.ArrayList;
 import java.util.List;

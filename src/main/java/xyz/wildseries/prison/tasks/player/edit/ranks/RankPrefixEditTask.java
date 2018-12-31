@@ -6,7 +6,7 @@ import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.gui.menus.ranks.RankEditor;
 import xyz.wildseries.prison.managers.RankManager;
 import xyz.wildseries.prison.objects.Prisoner;
-import xyz.wildseries.prison.objects.Rank;
+import xyz.wildseries.prison.objects.ranks.Rank;
 import xyz.wildseries.prison.setup.Message;
 import xyz.wildseries.prison.tasks.player.PlayerTask;
 import xyz.wildseries.prison.tasks.types.ChatTask;

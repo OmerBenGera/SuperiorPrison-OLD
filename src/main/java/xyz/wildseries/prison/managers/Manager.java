@@ -12,6 +12,7 @@ public class Manager implements BaseManager {
     private CommandManager commandManager;
     private ListenerManager listenerManager;
     private RankManager rankManager;
+    private MineManager mineManager;
     private MenuManager menuManager;
     private TaskManager taskManager;
     private PlayerManager playerManager;
@@ -23,6 +24,7 @@ public class Manager implements BaseManager {
         commandManager = new CommandManager(loader);
         listenerManager = new ListenerManager(loader);
         rankManager = new RankManager(loader);
+        mineManager = new MineManager(loader);
         menuManager = new MenuManager(loader);
         taskManager = new TaskManager(loader);
         playerManager = new PlayerManager(loader);
@@ -32,6 +34,7 @@ public class Manager implements BaseManager {
     public void load() {
         fileManager.load();
         rankManager.load();
+        mineManager.load();
         menuManager.load();
         taskManager.load();
         playerManager.load();
@@ -40,6 +43,7 @@ public class Manager implements BaseManager {
     @Override
     public void save() {
         taskManager.save();
+        mineManager.save();
         rankManager.save();
         menuManager.save();
         playerManager.save();

@@ -11,7 +11,7 @@ import xyz.wildseries.prison.gui.buttons.ranks.editor.RankNameButton;
 import xyz.wildseries.prison.gui.buttons.ranks.editor.RankPrefixButton;
 import xyz.wildseries.prison.gui.buttons.ranks.editor.RankPriceButton;
 import xyz.wildseries.prison.gui.menus.Menu;
-import xyz.wildseries.prison.objects.Rank;
+import xyz.wildseries.prison.objects.ranks.Rank;
 
 @Getter
 public class RankEditor extends Menu {

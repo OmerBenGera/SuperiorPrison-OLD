@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.configuration.ConfigFile;
-import xyz.wildseries.prison.objects.Rank;
+import xyz.wildseries.prison.objects.ranks.Rank;
 
 import java.util.*;
 

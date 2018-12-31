@@ -13,6 +13,7 @@ public class FileManager implements BaseManager {
 
     private ConfigFile settingsYaml;
     private ConfigFile ranksYaml;
+    private ConfigFile minesYaml;
 
     public FileManager(SuperiorPrisonPlugin loader) {
         this.loader = loader;
@@ -30,10 +31,12 @@ public class FileManager implements BaseManager {
 
         settingsYaml = new ConfigFile("settings.yml", loader.getDataFolder());
         ranksYaml = new ConfigFile("ranks.yml", loader.getDataFolder());
+        minesYaml = new ConfigFile("mines.yml", loader.getDataFolder());
     }
 
     @Override
     public void save() {
         ranksYaml.save();
+        minesYaml.save();
     }
 }

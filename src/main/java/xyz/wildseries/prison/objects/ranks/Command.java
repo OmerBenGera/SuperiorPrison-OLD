@@ -1,4 +1,4 @@
-package xyz.wildseries.prison.objects;
+package xyz.wildseries.prison.objects.ranks;
 
 import lombok.Getter;
 import lombok.Setter;

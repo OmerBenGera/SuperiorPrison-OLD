@@ -1,4 +1,6 @@
-package xyz.wildseries.prison.objects;
+package xyz.wildseries.prison.objects.ranks;
+
+import xyz.wildseries.prison.objects.Prisoner;
 
 public class ProgressBar {
 
