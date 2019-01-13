@@ -28,7 +28,12 @@ public enum Message {
     RANKUP_NOT_ENOUGH_MONEY(ERROR.firstLine() + "You don't have enough money to preform this action."),
     RANKUP_NO_RANK(ERROR.firstLine() + "You already have the highest rank."),
     RANKUP_ALL(PREFIX.firstLine() + "You ranked up §e%count §7times."),
-    RANKUP_BROADCAST(PREFIX.firstLine() + "§e%name §7ranked up to §e%rank_name§7.");
+    RANKUP_BROADCAST(PREFIX.firstLine() + "§e%name §7ranked up to §e%rank_name§7."),
+
+    REGION_SET_POS(PREFIX.firstLine() + "Set Position §e#%number §7to §e%location§7."),
+    REGION_CANCEL(PREFIX.firstLine() + "All changes were canceled."),
+    REGION_CONFIRM(PREFIX.firstLine() + "Successfully saved the changes."),
+    REGION_FAILED(ERROR.firstLine() + "Cannot commit the changes.");
 
     private String[] message;
 

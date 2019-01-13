@@ -3,6 +3,7 @@ package xyz.wildseries.prison.managers;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.listeners.MenuListener;
 import xyz.wildseries.prison.listeners.PlayerListener;
+import xyz.wildseries.prison.listeners.TaskListener;
 
 public class ListenerManager implements BaseManager {
 
@@ -13,6 +14,7 @@ public class ListenerManager implements BaseManager {
 
         new MenuListener(loader);
         new PlayerListener(loader);
+        new TaskListener(loader);
     }
 
     @Override

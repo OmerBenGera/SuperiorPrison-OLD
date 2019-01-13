@@ -10,6 +10,8 @@ import xyz.wildseries.prison.managers.RankManager;
 import xyz.wildseries.prison.objects.ranks.Rank;
 import xyz.wildseries.prison.setup.Message;
 import xyz.wildseries.prison.tasks.Task;
+import xyz.wildseries.prison.tasks.TaskFlag;
+import xyz.wildseries.prison.tasks.player.PlayerTask;
 
 import java.util.*;
 
@@ -53,6 +55,20 @@ public class Prisoner implements ConfigurationSerializable {
         file.save();
 
         SuperiorPrisonPlugin.getInstance().getManager().getPlayerManager().getPlayers().remove(this);
+    }
+
+    public boolean hasTask(Class type) {
+        for (Task task : tasks)
+            if (task.getClass().equals(type))
+                return true;
+        return false;
+    }
+
+    public boolean hasTask(TaskFlag flag) {
+        for (Task task : tasks)
+            if (task.hasFlag(flag))
+                return true;
+        return false;
     }
 
     public void rankup() {

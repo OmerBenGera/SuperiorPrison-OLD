@@ -1,6 +1,7 @@
 package xyz.wildseries.prison.objects.mines;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Getter
+@Setter
 public class Region implements ConfigurationSerializable {
 
     private World world;
@@ -22,18 +24,13 @@ public class Region implements ConfigurationSerializable {
     private Vector b;
 
     public Region(World world, Vector a, Vector b) {
-        this.world = world;
+        initialize(world, a, b);
+    }
 
-        this.a = new Vector(
-                a.getBlockX() < b.getBlockX() ? a.getBlockX() : b.getBlockX(),
-                a.getBlockY() < b.getBlockY() ? a.getBlockY() : b.getBlockY(),
-                a.getBlockZ() < b.getBlockZ() ? a.getBlockZ() : b.getBlockZ()
-        );
-        this.a = new Vector(
-                a.getBlockX() < b.getBlockX() ? b.getBlockX() : a.getBlockX(),
-                a.getBlockY() < b.getBlockY() ? b.getBlockY() : a.getBlockY(),
-                a.getBlockZ() < b.getBlockZ() ? b.getBlockZ() : a.getBlockZ()
-        );
+    public Region() {
+        this.world = null;
+        this.a = null;
+        this.b = null;
     }
 
     @SuppressWarnings("unchecked")
@@ -54,6 +51,21 @@ public class Region implements ConfigurationSerializable {
         map.put("world", world.getName());
 
         return map;
+    }
+
+    public void initialize(World world, Vector a, Vector b) {
+        this.world = world;
+
+        this.a = new Vector(
+                a.getBlockX() < b.getBlockX() ? a.getBlockX() : b.getBlockX(),
+                a.getBlockY() < b.getBlockY() ? a.getBlockY() : b.getBlockY(),
+                a.getBlockZ() < b.getBlockZ() ? a.getBlockZ() : b.getBlockZ()
+        );
+        this.a = new Vector(
+                a.getBlockX() < b.getBlockX() ? b.getBlockX() : a.getBlockX(),
+                a.getBlockY() < b.getBlockY() ? b.getBlockY() : a.getBlockY(),
+                a.getBlockZ() < b.getBlockZ() ? b.getBlockZ() : a.getBlockZ()
+        );
     }
 
     public boolean isInLocation(Location location) {

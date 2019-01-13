@@ -2,14 +2,16 @@ package xyz.wildseries.prison.listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.*;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.managers.PlayerManager;
 import xyz.wildseries.prison.objects.Prisoner;
+import xyz.wildseries.prison.objects.mines.Region;
 import xyz.wildseries.prison.tasks.Task;
+import xyz.wildseries.prison.tasks.player.mine.RegionTask;
 import xyz.wildseries.prison.tasks.types.ChatTask;
+import xyz.wildseries.prison.tasks.types.InteractTask;
+import xyz.wildseries.prison.tasks.types.ScrollTask;
 
 public class PlayerListener extends BaseListener {
 
@@ -28,12 +30,37 @@ public class PlayerListener extends BaseListener {
     }
 
     @EventHandler
+    public void onPlayerSneak(PlayerToggleSneakEvent event) {
+        if (!event.getPlayer().isSneaking())
+            if (!getManager().getPrisoner(event.getPlayer()).hasTask(RegionTask.class))
+                new RegionTask(new Region(), getManager().getPrisoner(event.getPlayer()));
+    }
+
+    @EventHandler
     public void onAsyncPlayerChatEvent(AsyncPlayerChatEvent event) {
         Prisoner prisoner = getManager().getPrisoner(event.getPlayer().getUniqueId());
 
         for (Task task : prisoner.getTasks())
             if (task instanceof ChatTask)
                 ((ChatTask) task).onPlayerChat(event);
+    }
+
+    @EventHandler (ignoreCancelled = true)
+    public void onPlayerInteract(PlayerInteractEvent event) {
+        Prisoner prisoner = getManager().getPrisoner(event.getPlayer());
+
+        for (Task task : prisoner.getTasks())
+            if (task instanceof InteractTask)
+                ((InteractTask) task).onPlayerInteract(event);
+    }
+
+    @EventHandler (ignoreCancelled = true)
+    public void onPlayerItemHeld(PlayerItemHeldEvent event) {
+        Prisoner prisoner = getManager().getPrisoner(event.getPlayer());
+
+        for (Task task : prisoner.getTasks())
+            if (task instanceof ScrollTask)
+                ((ScrollTask) task).onPlayerItemHeld(event);
     }
 
     @EventHandler (priority = EventPriority.HIGHEST)
