@@ -14,3 +14,6 @@ commands:
   rankup:
     description: Upgrade your rank
     aliases: rankupgrade
+  mines:
+    description: List of mines
+    aliases: mines

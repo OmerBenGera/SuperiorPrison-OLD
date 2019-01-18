@@ -9,6 +9,9 @@ public enum Permission {
     CMD_RANK("superiorprison.commands.ranks.normal"),
     CMD_RANK_ADMIN("superiorprison.commands.ranks.admin"),
 
+    CMD_MINE("superiorprison.commands.mines.normal"),
+    CMD_MINE_ADMIN("superiorprison.commands.mines.admin"),
+
     CMD_RANKUP("superiorprison.commands.rankup");
 
     private String permission;
