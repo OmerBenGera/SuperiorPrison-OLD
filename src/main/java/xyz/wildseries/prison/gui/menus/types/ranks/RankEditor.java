@@ -1,4 +1,4 @@
-package xyz.wildseries.prison.gui.menus.ranks;
+package xyz.wildseries.prison.gui.menus.types.ranks;
 
 import lombok.Getter;
 import org.bukkit.entity.Player;

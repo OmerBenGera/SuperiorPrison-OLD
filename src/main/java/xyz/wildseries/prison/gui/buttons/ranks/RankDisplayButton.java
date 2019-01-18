@@ -2,7 +2,7 @@ package xyz.wildseries.prison.gui.buttons.ranks;
 
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
-import xyz.wildseries.prison.gui.menus.ranks.RanksMenu;
+import xyz.wildseries.prison.gui.menus.types.ranks.RanksMenu;
 import xyz.wildseries.prison.objects.Prisoner;
 import xyz.wildseries.prison.objects.ranks.Rank;
 import xyz.wildseries.prison.setup.Message;

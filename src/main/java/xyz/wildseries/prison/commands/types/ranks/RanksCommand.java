@@ -4,7 +4,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.commands.BaseCommand;
-import xyz.wildseries.prison.gui.menus.ranks.RanksMenu;
+import xyz.wildseries.prison.gui.menus.types.ranks.RanksMenu;
 import xyz.wildseries.prison.setup.Message;
 import xyz.wildseries.prison.setup.Permission;
 

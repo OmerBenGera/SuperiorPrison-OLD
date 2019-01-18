@@ -3,7 +3,7 @@ package xyz.wildseries.prison.gui.buttons.ranks.editor.commands;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
 import xyz.wildseries.prison.gui.buttons.ranks.RankButton;
-import xyz.wildseries.prison.gui.menus.ranks.RankCommandsEditor;
+import xyz.wildseries.prison.gui.menus.types.ranks.RankCommandsEditor;
 import xyz.wildseries.prison.objects.ranks.Command;
 import xyz.wildseries.prison.tasks.player.edit.commands.CommandEditTask;
 import xyz.wildseries.prison.utils.ItemUtils;

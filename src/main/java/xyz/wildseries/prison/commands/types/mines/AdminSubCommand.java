@@ -3,6 +3,7 @@ package xyz.wildseries.prison.commands.types.mines;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import xyz.wildseries.prison.commands.SubCommand;
+import xyz.wildseries.prison.gui.menus.types.mines.MinesAdminMenu;
 import xyz.wildseries.prison.setup.Message;
 import xyz.wildseries.prison.setup.Permission;
 
@@ -21,6 +22,6 @@ public class AdminSubCommand extends SubCommand {
             return;
         }
 
-        // TODO open admin menu
+        new MinesAdminMenu(player).open();
     }
 }

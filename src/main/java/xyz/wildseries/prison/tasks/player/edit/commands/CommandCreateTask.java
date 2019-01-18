@@ -2,7 +2,7 @@ package xyz.wildseries.prison.tasks.player.edit.commands;
 
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
-import xyz.wildseries.prison.gui.menus.ranks.RankCommandsEditor;
+import xyz.wildseries.prison.gui.menus.types.ranks.RankCommandsEditor;
 import xyz.wildseries.prison.managers.RankManager;
 import xyz.wildseries.prison.objects.ranks.Command;
 import xyz.wildseries.prison.objects.Prisoner;

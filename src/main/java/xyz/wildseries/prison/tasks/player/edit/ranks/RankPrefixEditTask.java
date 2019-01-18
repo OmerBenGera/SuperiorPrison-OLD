@@ -3,7 +3,7 @@ package xyz.wildseries.prison.tasks.player.edit.ranks;
 import org.bukkit.ChatColor;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import xyz.wildseries.prison.SuperiorPrisonPlugin;
-import xyz.wildseries.prison.gui.menus.ranks.RankEditor;
+import xyz.wildseries.prison.gui.menus.types.ranks.RankEditor;
 import xyz.wildseries.prison.managers.RankManager;
 import xyz.wildseries.prison.objects.Prisoner;
 import xyz.wildseries.prison.objects.ranks.Rank;
