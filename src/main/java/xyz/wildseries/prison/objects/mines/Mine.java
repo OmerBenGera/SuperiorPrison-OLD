@@ -45,6 +45,8 @@ public class Mine implements ConfigurationSerializable {
         spawn = map.containsKey("spawn") ? ConfigUtils.deserializeLocation((Map<String, Object>) map.get("spawn")) : null;
         region = map.containsKey("region") ? new Region((Map<String, Object>) map.get("region")) : null;
         blockGenerator = new BlockGenerator((List<Map<String, Object>>) map.get("generator"));
+
+        getManager().getMines().add(this);
     }
 
     @Override
@@ -54,11 +56,17 @@ public class Mine implements ConfigurationSerializable {
         map.put("uuid", uuid.toString());
         map.put("name", name);
         map.put("permission", permission);
-        map.put("spawn", spawn == null ? null : ConfigUtils.serializeLocation(spawn));
-        map.put("region", region == null ? null : region.serialize());
+        if (spawn != null)
+            map.put("spawn", ConfigUtils.serializeLocation(spawn));
+        if (region != null)
+            map.put("region", region.serialize());
         map.put("generator", blockGenerator.serialize());
 
         return map;
+    }
+
+    public void remove() {
+        getManager().getMines().remove(this);
     }
 
     private static MineManager getManager() {
