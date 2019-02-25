@@ -11,7 +11,7 @@ public abstract class MineButton extends Button {
 
     protected Mine mine;
 
-    public MineButton(Menu menu, ItemStack item, Mine mine) {
+    public MineButton(Menu menu, Mine mine, ItemStack item) {
         super(menu, item);
         this.mine = mine;
     }

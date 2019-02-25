@@ -8,7 +8,7 @@ import xyz.wildseries.prison.managers.PlayerManager;
 import xyz.wildseries.prison.objects.Prisoner;
 import xyz.wildseries.prison.objects.mines.Region;
 import xyz.wildseries.prison.tasks.Task;
-import xyz.wildseries.prison.tasks.player.mine.RegionTask;
+import xyz.wildseries.prison.tasks.player.edit.mine.RegionTask;
 import xyz.wildseries.prison.tasks.types.ChatTask;
 import xyz.wildseries.prison.tasks.types.InteractTask;
 import xyz.wildseries.prison.tasks.types.ScrollTask;
@@ -27,13 +27,6 @@ public class PlayerListener extends BaseListener {
     @EventHandler (priority = EventPriority.LOWEST)
     public void onPlayerQuit(PlayerQuitEvent event) {
         getManager().getPrisoner(event.getPlayer()).unload();
-    }
-
-    @EventHandler
-    public void onPlayerSneak(PlayerToggleSneakEvent event) {
-        if (!event.getPlayer().isSneaking())
-            if (!getManager().getPrisoner(event.getPlayer()).hasTask(RegionTask.class))
-                new RegionTask(new Region(), getManager().getPrisoner(event.getPlayer()));
     }
 
     @EventHandler

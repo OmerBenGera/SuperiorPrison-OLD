@@ -53,6 +53,18 @@ public class Region implements ConfigurationSerializable {
         return map;
     }
 
+    @Override
+    public String toString() {
+        if (world == null || a == null || b == null)
+            return "none";
+
+        return world.getName() + ", " + a.getBlockX() + "," + a.getBlockY() + "," + a.getBlockZ() + ", " + b.getBlockX() + "," + b.getBlockY() + "," + b.getBlockZ();
+    }
+
+    public boolean isValid() {
+        return world != null;
+    }
+
     public void initialize(World world, Vector a, Vector b) {
         this.world = world;
 

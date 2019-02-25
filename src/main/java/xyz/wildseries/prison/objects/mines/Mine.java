@@ -31,7 +31,7 @@ public class Mine implements ConfigurationSerializable {
         name = "#" + getManager().getMines().size();
         permission = "superiorprison.mine." + name;
         spawn = null;
-        region = null;
+        region = new Region();
         blockGenerator = new BlockGenerator();
 
         getManager().getMines().add(this);
@@ -43,7 +43,7 @@ public class Mine implements ConfigurationSerializable {
         name = (String) map.get("name");
         permission = (String) map.get("permission");
         spawn = map.containsKey("spawn") ? ConfigUtils.deserializeLocation((Map<String, Object>) map.get("spawn")) : null;
-        region = map.containsKey("region") ? new Region((Map<String, Object>) map.get("region")) : null;
+        region = map.containsKey("region") ? new Region((Map<String, Object>) map.get("region")) : new Region();
         blockGenerator = new BlockGenerator((List<Map<String, Object>>) map.get("generator"));
 
         getManager().getMines().add(this);
@@ -58,7 +58,7 @@ public class Mine implements ConfigurationSerializable {
         map.put("permission", permission);
         if (spawn != null)
             map.put("spawn", ConfigUtils.serializeLocation(spawn));
-        if (region != null)
+        if (region != null && region.isValid())
             map.put("region", region.serialize());
         map.put("generator", blockGenerator.serialize());
 

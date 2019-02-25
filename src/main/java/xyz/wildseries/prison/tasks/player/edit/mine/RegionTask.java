@@ -1,4 +1,4 @@
-package xyz.wildseries.prison.tasks.player.mine;
+package xyz.wildseries.prison.tasks.player.edit.mine;
 
 import lombok.Getter;
 import org.bukkit.Location;
@@ -34,7 +34,7 @@ public class RegionTask extends PlayerTask implements InteractTask, ScrollTask {
 
         addFlags(TaskFlag.CANCEL_DROPS, TaskFlag.CANCEL_INVENTORY);
 
-        this.region = region;
+        this.region = region == null ? new Region() : region;
 
         items = prisoner.getPlayer().getInventory().getContents();
         prisoner.getPlayer().getInventory().clear();

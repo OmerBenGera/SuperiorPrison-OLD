@@ -1,5 +1,6 @@
 package xyz.wildseries.prison.utils;
 
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -16,6 +17,7 @@ public class ItemUtils {
         ItemStack item = build(material);
         ItemMeta meta = item.getItemMeta();
 
+        meta.addItemFlags(ItemFlag.values());
         meta.setDisplayName(name);
         item.setItemMeta(meta);
 

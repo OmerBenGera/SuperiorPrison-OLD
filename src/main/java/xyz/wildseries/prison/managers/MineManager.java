@@ -43,4 +43,12 @@ public class MineManager implements BaseManager {
 
         file.getBukkitConfig().set("mines", list);
     }
+
+    public Mine getMine(String name) {
+        for (Mine mine : mines) {
+            if (mine.getName().equals(name))
+                return mine;
+        }
+        return null;
+    }
 }
