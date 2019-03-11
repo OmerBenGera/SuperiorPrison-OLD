@@ -1,6 +1,7 @@
 package com.bgsoftware.superiorprison.gui.menus.types.mines;
 
 import com.bgsoftware.superiorprison.gui.MenuItem;
+import com.bgsoftware.superiorprison.gui.buttons.mines.editor.*;
 import com.bgsoftware.superiorprison.gui.menus.Menu;
 import com.bgsoftware.superiorprison.objects.mines.Mine;
 import lombok.Getter;
@@ -8,10 +9,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import com.bgsoftware.superiorprison.gui.buttons.general.ExitButton;
 import com.bgsoftware.superiorprison.gui.buttons.general.ReturnButton;
-import com.bgsoftware.superiorprison.gui.buttons.mines.editor.MineNameButton;
-import com.bgsoftware.superiorprison.gui.buttons.mines.editor.MinePermissionButton;
-import com.bgsoftware.superiorprison.gui.buttons.mines.editor.MineRegionButton;
-import com.bgsoftware.superiorprison.gui.buttons.mines.editor.MineSpawnButton;
 
 @Getter
 public class MineEditor extends Menu {
@@ -35,6 +32,7 @@ public class MineEditor extends Menu {
         setButton(41, new ExitButton(this));
 
         setButton(10, new MinePermissionButton(this));
+        setButton(13, new MineGeneratorButton(this));
         setButton(16, new MineRegionButton(this));
         setButton(21, new MineNameButton(this));
         setButton(23, new MineSpawnButton(this));

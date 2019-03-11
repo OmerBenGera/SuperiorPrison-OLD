@@ -3,6 +3,7 @@
     <output-path>$USER_HOME$/Desktop/Server/1.13.1/plugins</output-path>
     <root id="archive" name="superiorprison.jar">
       <element id="module-output" name="superiorprison" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/wesjd/anvilgui/1.2.1-SNAPSHOT/anvilgui-1.2.1-20180830.001535-2.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

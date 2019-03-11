@@ -1,7 +1,7 @@
 name: SuperiorPrison
 version: 1.0
 api-version: 1.13
-main: SuperiorPrisonPlugin
+main: com.bgsoftware.superiorprison.SuperiorPrisonPlugin
 description: Highly advanced prison core plugin
 website: http://wildseries.xyz/
 authors: [Ome_R, WildSeries]

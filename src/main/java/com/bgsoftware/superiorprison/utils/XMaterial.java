@@ -995,4 +995,12 @@ public enum XMaterial {
         return Material.matchMaterial(m);
     }
 
+    public static XMaterial valueOf(ItemStack item) {
+        for (XMaterial xMaterial : values()) {
+            if (xMaterial.parseItem().equals(item))
+                return xMaterial;
+        }
+        return null;
+    }
+
 }
