@@ -31,8 +31,8 @@ public class ConfigUtils {
         Map<String, Object> map = new HashMap<>();
 
         map.put("x", vector.getX());
-        map.put("y", vector.getX());
-        map.put("z", vector.getX());
+        map.put("y", vector.getY());
+        map.put("z", vector.getZ());
 
         return map;
     }

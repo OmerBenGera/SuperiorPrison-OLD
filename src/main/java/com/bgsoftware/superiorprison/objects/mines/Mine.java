@@ -69,6 +69,13 @@ public class Mine implements ConfigurationSerializable {
         getManager().getMines().remove(this);
     }
 
+    public void reset() {
+        if (region == null)
+            return;
+
+        blockGenerator.generate(region);
+    }
+
     private static MineManager getManager() {
         return SuperiorPrisonPlugin.getInstance().getManager().getMineManager();
     }

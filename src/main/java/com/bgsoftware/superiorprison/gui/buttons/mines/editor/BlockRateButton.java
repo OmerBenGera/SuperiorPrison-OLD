@@ -30,10 +30,14 @@ public class BlockRateButton extends Button {
                         (Player) event.getWhoClicked(),
                         "Enter a new Percentage",
                         (player, reply) -> {
-                            double input;
 
                             try {
-                                rate.setRate(Double.valueOf(reply));
+                                double input = Double.valueOf(reply);
+
+                                if (((GeneratorEditor) menu).getMine().getBlockGenerator().getSolidPercent(rate) + input > 100)
+                                    return "Higher than 100";
+
+                                rate.setRate(input);
                                 new GeneratorEditor(player, ((GeneratorEditor) menu).getMine()).open();
                                 return null;
                             } catch (Exception e) {

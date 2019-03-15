@@ -11,8 +11,7 @@ import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Entity;
 import org.bukkit.util.Vector;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Getter
 @Setter
@@ -22,6 +21,10 @@ public class Region implements ConfigurationSerializable {
 
     private Vector a;
     private Vector b;
+
+    private int currentX;
+    private int currentY;
+    private int currentZ;
 
     public Region(World world, Vector a, Vector b) {
         initialize(world, a, b);
@@ -69,14 +72,14 @@ public class Region implements ConfigurationSerializable {
         this.world = world;
 
         this.a = new Vector(
-                a.getBlockX() < b.getBlockX() ? a.getBlockX() : b.getBlockX(),
-                a.getBlockY() < b.getBlockY() ? a.getBlockY() : b.getBlockY(),
-                a.getBlockZ() < b.getBlockZ() ? a.getBlockZ() : b.getBlockZ()
+                Math.min(a.getBlockX(), b.getBlockX()),
+                Math.min(a.getBlockY(), b.getBlockY()),
+                Math.min(a.getBlockZ(), b.getBlockZ())
         );
-        this.a = new Vector(
-                a.getBlockX() < b.getBlockX() ? b.getBlockX() : a.getBlockX(),
-                a.getBlockY() < b.getBlockY() ? b.getBlockY() : a.getBlockY(),
-                a.getBlockZ() < b.getBlockZ() ? b.getBlockZ() : a.getBlockZ()
+        this.b = new Vector(
+                Math.max(a.getBlockX(), b.getBlockX()),
+                Math.max(a.getBlockY(), b.getBlockY()),
+                Math.max(a.getBlockZ(), b.getBlockZ())
         );
     }
 
@@ -89,6 +92,60 @@ public class Region implements ConfigurationSerializable {
         double z = location.getZ();
 
         return a.getX() < x && b.getX() > x && a.getY() < y && b.getY() > y && a.getZ() < z && b.getZ() > z;
+    }
+
+    public List<Block> getBlocks() {
+        List<Block> blocks = new ArrayList<>();
+        for (int x = a.getBlockX(); x <= b.getBlockX(); x++) {
+            for (int y = a.getBlockY(); y <= b.getBlockY(); y++) {
+                for (int z = a.getBlockZ(); z <= b.getBlockZ(); z++) {
+                    blocks.add(world.getBlockAt(x, y, z));
+                }
+            }
+        }
+
+        return blocks;
+    }
+
+    public void resetPointer() {
+        currentX = a.getBlockX();
+        currentY = a.getBlockY();
+        currentZ = a.getBlockZ();
+    }
+
+    public Block nextBlock() {
+
+        int x = currentX;
+        int y = currentY;
+        int z = currentZ;
+
+        boolean out = isPointerOutOfBounds();
+
+        currentX++;
+
+        if (currentX > b.getBlockX()) {
+            currentY++;
+            currentX = a.getBlockX();
+        }
+
+        if (currentY > b.getBlockY()) {
+            currentZ++;
+            currentY = a.getBlockY();
+        }
+
+        return out ? null : world.getBlockAt(x, y, z);
+    }
+
+    public int getVolume() {
+        int xScale = b.getBlockX() - a.getBlockX() + 1;
+        int yScale = b.getBlockY() - a.getBlockY() + 1;
+        int zScale = b.getBlockZ() - a.getBlockZ() + 1;
+
+        return xScale * yScale * zScale;
+    }
+
+    public boolean isPointerOutOfBounds() {
+        return currentZ > b.getBlockZ();
     }
 
     public boolean isInLocation(Block block) {

@@ -13,6 +13,7 @@ public class MinesCommand extends BaseCommand {
         super(plugin, Permission.CMD_MINE, "mines", "mine");
 
         subs.add(new AdminSubCommand());
+        subs.add(new ResetSubCommand());
     }
 
     @Override

@@ -84,9 +84,7 @@ public class RegionTask extends PlayerTask implements InteractTask, ScrollTask {
                     break;
                 }
 
-                region.setA(a.toVector());
-                region.setB(b.toVector());
-                region.setWorld(world);
+                region.initialize(world, a.toVector(), b.toVector());
 
                 Message.REGION_CONFIRM.send(prisoner.getPlayer());
                 end();

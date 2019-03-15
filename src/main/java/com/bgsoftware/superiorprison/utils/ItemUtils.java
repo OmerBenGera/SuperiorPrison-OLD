@@ -10,7 +10,7 @@ import java.util.List;
 public class ItemUtils {
 
     public static ItemStack build(XMaterial material) {
-        return material.parseItem();
+        return material == null ? null : material.parseItem();
     }
 
     public static ItemStack build(XMaterial material, String name) {
