@@ -17,7 +17,7 @@ public class AllSubCommand extends SubCommand {
     @Override
     public void execute(CommandSender sender, String[] args) {
         Player player = (Player) sender;
-        Prisoner prisoner = SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner(player);
+        Prisoner prisoner = SuperiorPrisonPlugin.getPlugin().getPlayerManager().getPrisoner(player);
 
         int count = 0;
         while (prisoner.getNextRank() != null && prisoner.hasEnoughMoney(prisoner.getNextRank().getPrice())) {

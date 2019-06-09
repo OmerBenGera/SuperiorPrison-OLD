@@ -11,7 +11,7 @@ public enum Setting {
     private Object value;
 
     Setting(String key) {
-        value = SuperiorPrisonPlugin.getPlugin().getManager().getFileManager().getSettingsYaml().getBukkitConfig().get(key);
+        value = SuperiorPrisonPlugin.getPlugin().getFileManager().getSettingsYaml().getBukkitConfig().get(key);
     }
 
     @SuppressWarnings("unchecked")

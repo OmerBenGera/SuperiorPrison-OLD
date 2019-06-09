@@ -44,7 +44,7 @@ public class TaskListener extends BaseListener {
     }
 
     private PlayerManager getManager() {
-        return loader.getManager().getPlayerManager();
+        return loader.getPlayerManager();
     }
 
 }

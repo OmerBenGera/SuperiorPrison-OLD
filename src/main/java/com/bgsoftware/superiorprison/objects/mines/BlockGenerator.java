@@ -31,29 +31,6 @@ public class BlockGenerator {
     }
 
     public void generate(Region region) {
-//        List<Block> blocks = region.getBlocks();
-//
-//        for (BlockRate rate : rates) {
-//            int amount = (int) ((rate.getRate() / 100.0) * blocks.size());
-//
-//            while (amount > 0) {
-//                getAndRemove(blocks).setType(rate.getMaterial().parseMaterial());
-//                amount--;
-//            }
-//        }
-//
-//        while (!blocks.isEmpty()) {
-//            getAndRemove(blocks).setType(rates.get(0).getMaterial().parseMaterial());
-//        }
-
-//        region.resetPointer();
-//        Block block = region.nextBlock();
-//        while (block != null) {
-//            block.setType(getRandomMaterial());
-//            block = region.nextBlock();
-//        }
-
-
         List<Material> materials = new ArrayList<>();
         int volume = region.getVolume();
 
@@ -72,10 +49,6 @@ public class BlockGenerator {
             region.nextBlock().setType(material);
         }
     }
-
-//    private Material getRandomMaterial() {
-//        return rates.get(ThreadLocalRandom.current().nextInt(rates.size())).getMaterial().parseMaterial();
-//    }
 
     public double getSolidPercent(BlockRate... ignore) {
         List<BlockRate> ignoreList = Arrays.asList(ignore);

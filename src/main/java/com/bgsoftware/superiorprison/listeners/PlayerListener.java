@@ -62,6 +62,6 @@ public class PlayerListener extends BaseListener {
     }
 
     private PlayerManager getManager() {
-        return loader.getManager().getPlayerManager();
+        return loader.getPlayerManager();
     }
 }

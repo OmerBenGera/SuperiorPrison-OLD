@@ -17,6 +17,6 @@ public class RankPriceButton extends RankButton {
     @Override
     public void onClick(InventoryClickEvent event) {
         menu.close();
-        new RankPriceEditTask(SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner(menu.getPlayer()), rank).start();
+        new RankPriceEditTask(SuperiorPrisonPlugin.getPlugin().getPlayerManager().getPrisoner(menu.getPlayer()), rank).start();
     }
 }

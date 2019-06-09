@@ -23,7 +23,7 @@ public class Menu {
         inventory = Bukkit.createInventory(null, rows * 9, title);
         buttons = new HashMap<>();
 
-        SuperiorPrisonPlugin.getPlugin().getManager().getMenuManager().registerMenu(this);
+        SuperiorPrisonPlugin.getPlugin().getMenuManager().registerMenu(this);
     }
 
     public void onClick(InventoryClickEvent event) {
@@ -60,7 +60,7 @@ public class Menu {
 
     public void close() {
         player.closeInventory();
-        SuperiorPrisonPlugin.getPlugin().getManager().getMenuManager().removeMenu(this);
+        SuperiorPrisonPlugin.getPlugin().getMenuManager().removeMenu(this);
     }
 
     public void setButton(int slot, Button button) {

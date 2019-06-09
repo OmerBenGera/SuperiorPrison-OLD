@@ -17,6 +17,6 @@ public class MineNameButton extends MineButton {
     @Override
     public void onClick(InventoryClickEvent event) {
         menu.close();
-        new MineNameEditTask(SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner(menu.getPlayer()), mine).start();
+        new MineNameEditTask(SuperiorPrisonPlugin.getPlugin().getPlayerManager().getPrisoner(menu.getPlayer()), mine).start();
     }
 }

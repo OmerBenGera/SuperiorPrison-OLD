@@ -74,7 +74,7 @@ public class Mine implements ConfigurationSerializable {
     }
 
     private static MineManager getManager() {
-        return SuperiorPrisonPlugin.getPlugin().getManager().getMineManager();
+        return SuperiorPrisonPlugin.getPlugin().getMineManager();
     }
 
     public void setName(String name) {

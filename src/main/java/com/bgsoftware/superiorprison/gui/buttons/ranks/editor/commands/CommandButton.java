@@ -27,7 +27,7 @@ public class CommandButton extends RankButton {
                 break;
             case LEFT:
                 menu.close();
-                new CommandEditTask(SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner(menu.getPlayer()), rank, command).start();
+                new CommandEditTask(SuperiorPrisonPlugin.getPlugin().getPlayerManager().getPrisoner(menu.getPlayer()), rank, command).start();
                 break;
         }
     }

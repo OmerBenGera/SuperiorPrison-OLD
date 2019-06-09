@@ -24,7 +24,7 @@ public class MineManager implements BaseManager {
     public void load() {
         mines = new ArrayList<>();
 
-        FileConfiguration config = loader.getManager().getFileManager().getMinesYaml().getBukkitConfig();
+        FileConfiguration config = loader.getFileManager().getMinesYaml().getBukkitConfig();
         for (Map<?, ?> map : config.getMapList("mines"))
             new Mine((Map<String, Object>) map);
 
@@ -37,7 +37,7 @@ public class MineManager implements BaseManager {
         for (Mine mine : mines)
             list.add(mine.serialize());
 
-        ConfigFile file = loader.getManager().getFileManager().getMinesYaml();
+        ConfigFile file = loader.getFileManager().getMinesYaml();
 
         file.getBukkitConfig().set("mines", list);
     }

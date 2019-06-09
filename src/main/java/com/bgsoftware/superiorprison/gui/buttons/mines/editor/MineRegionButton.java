@@ -17,7 +17,7 @@ public class MineRegionButton extends MineButton {
     @Override
     public void onClick(InventoryClickEvent event) {
         menu.close();
-        new RegionTask(mine.getRegion(), SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner(menu.getPlayer())).start();
+        new RegionTask(mine.getRegion(), SuperiorPrisonPlugin.getPlugin().getPlayerManager().getPrisoner(menu.getPlayer())).start();
     }
 
 }

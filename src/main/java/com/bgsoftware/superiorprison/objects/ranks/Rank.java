@@ -20,7 +20,7 @@ public class Rank implements ConfigurationSerializable {
     private Rank next;
 
     public Rank() {
-        RankManager manager = SuperiorPrisonPlugin.getPlugin().getManager().getRankManager();
+        RankManager manager = SuperiorPrisonPlugin.getPlugin().getRankManager();
         List<Rank> ranks = manager.listRanks();
 
         uuid = UUID.randomUUID();
@@ -55,7 +55,7 @@ public class Rank implements ConfigurationSerializable {
         for (String s : (List<String>) map.get("commands"))
             commands.add(new Command(s));
 
-        SuperiorPrisonPlugin.getPlugin().getManager().getRankManager().getRanks().add(this);
+        SuperiorPrisonPlugin.getPlugin().getRankManager().getRanks().add(this);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class Rank implements ConfigurationSerializable {
     }
 
     public void remove() {
-        RankManager manager = SuperiorPrisonPlugin.getPlugin().getManager().getRankManager();
+        RankManager manager = SuperiorPrisonPlugin.getPlugin().getRankManager();
         List<Rank> ranks = manager.listRanks();
 
         boolean found = false;

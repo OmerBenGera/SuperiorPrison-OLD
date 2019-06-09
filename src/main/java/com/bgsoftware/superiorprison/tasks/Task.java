@@ -16,7 +16,7 @@ public abstract class Task {
         state = TaskState.PRE_PROCESS;
         flags = new HashSet<>();
 
-        SuperiorPrisonPlugin.getPlugin().getManager().getTaskManager().getTasks().add(this);
+        SuperiorPrisonPlugin.getPlugin().getTaskManager().getTasks().add(this);
     }
 
     protected void addFlags(TaskFlag... flags) {

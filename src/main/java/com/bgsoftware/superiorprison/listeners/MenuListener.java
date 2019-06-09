@@ -15,7 +15,7 @@ public class MenuListener extends BaseListener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onInventoryClick(InventoryClickEvent event) {
-        Menu menu = loader.getManager().getMenuManager().getMenu(event.getInventory());
+        Menu menu = loader.getMenuManager().getMenu(event.getInventory());
         if (menu == null)
             return;
         menu.onClick(event);
@@ -23,9 +23,9 @@ public class MenuListener extends BaseListener {
 
     @EventHandler (priority = EventPriority.HIGHEST)
     public void onInventoryClose(InventoryCloseEvent event) {
-        Menu menu = loader.getManager().getMenuManager().getMenu(event.getInventory());
+        Menu menu = loader.getMenuManager().getMenu(event.getInventory());
         if (menu == null)
             return;
-        loader.getManager().getMenuManager().removeMenu(menu);
+        loader.getMenuManager().removeMenu(menu);
     }
 }

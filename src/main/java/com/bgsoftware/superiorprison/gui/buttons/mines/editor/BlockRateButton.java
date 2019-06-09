@@ -25,7 +25,7 @@ public class BlockRateButton extends Button {
             case LEFT:
                 event.getWhoClicked().closeInventory();
                 new GeneratorEditTask(
-                        SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner((Player)event.getWhoClicked()),
+                        SuperiorPrisonPlugin.getPlugin().getPlayerManager().getPrisoner((Player)event.getWhoClicked()),
                         (GeneratorEditor) menu,
                         rate
                 ).start();

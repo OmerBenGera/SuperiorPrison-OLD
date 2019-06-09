@@ -23,7 +23,7 @@ public class Prisoner implements ConfigurationSerializable {
     private Set<Task> tasks;
 
     public Prisoner(UUID uuid) {
-        RankManager rankManager = SuperiorPrisonPlugin.getPlugin().getManager().getRankManager();
+        RankManager rankManager = SuperiorPrisonPlugin.getPlugin().getRankManager();
 
         this.uuid = uuid;
         file = new PlayerFile(uuid);
@@ -32,7 +32,7 @@ public class Prisoner implements ConfigurationSerializable {
                 rankManager.getDefaultRank();
         tasks = new HashSet<>();
 
-        SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPlayers().add(this);
+        SuperiorPrisonPlugin.getPlugin().getPlayerManager().getPlayers().add(this);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Prisoner implements ConfigurationSerializable {
         file.setMap(serialize());
         file.save();
 
-        SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPlayers().remove(this);
+        SuperiorPrisonPlugin.getPlugin().getPlayerManager().getPlayers().remove(this);
     }
 
     public boolean hasTask(Class type) {
@@ -77,7 +77,7 @@ public class Prisoner implements ConfigurationSerializable {
     }
 
     public Rank getNextRank() {
-        return rank == null ? SuperiorPrisonPlugin.getPlugin().getManager().getRankManager().getDefaultRank() : rank.getNext();
+        return rank == null ? SuperiorPrisonPlugin.getPlugin().getRankManager().getDefaultRank() : rank.getNext();
     }
 
     public Player getPlayer() {

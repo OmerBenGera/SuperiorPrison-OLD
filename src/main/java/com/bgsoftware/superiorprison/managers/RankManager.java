@@ -22,7 +22,7 @@ public class RankManager implements BaseManager {
     public void load() {
         ranks = new HashSet<>();
 
-        ConfigFile file = loader.getManager().getFileManager().getRanksYaml();
+        ConfigFile file = loader.getFileManager().getRanksYaml();
 
         // Loading the ranks
         Map<Rank, String> nextMap = new HashMap<>();
@@ -47,7 +47,7 @@ public class RankManager implements BaseManager {
         for (Rank rank : ranks)
             list.add(rank.serialize());
 
-        ConfigFile file = loader.getManager().getFileManager().getRanksYaml();
+        ConfigFile file = loader.getFileManager().getRanksYaml();
 
         file.getBukkitConfig().set("ranks", list);
         file.getBukkitConfig().set("default_rank", defaultRank == null ? "none" : defaultRank.getUuid().toString());
