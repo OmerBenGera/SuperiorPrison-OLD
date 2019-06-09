@@ -1,8 +1,8 @@
 package com.bgsoftware.superiorprison;
 
-import com.bgsoftware.superiorprison.listeners.MenuListener;
-import com.bgsoftware.superiorprison.listeners.PlayerListener;
-import com.bgsoftware.superiorprison.listeners.TaskListener;
+import com.bgsoftware.superiorprison.listeners.MenusListener;
+import com.bgsoftware.superiorprison.listeners.PlayersListener;
+import com.bgsoftware.superiorprison.listeners.TasksListener;
 import com.bgsoftware.superiorprison.managers.CommandManager;
 import com.bgsoftware.superiorprison.managers.FileManager;
 import com.bgsoftware.superiorprison.managers.MenuManager;
@@ -36,9 +36,9 @@ public final class SuperiorPrisonPlugin extends JavaPlugin {
             return;
         }
 
-        new MenuListener(this);
-        new PlayerListener(this);
-        new TaskListener(this);
+        getServer().getPluginManager().registerEvents(new MenusListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayersListener(this), this);
+        getServer().getPluginManager().registerEvents(new TasksListener(this), this);
 
         fileManager = new FileManager(this);
         commandManager = new CommandManager(this);

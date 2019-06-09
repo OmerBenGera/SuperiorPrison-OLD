@@ -6,14 +6,17 @@ import com.bgsoftware.superiorprison.objects.Prisoner;
 import com.bgsoftware.superiorprison.tasks.TaskFlag;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 
-public class TaskListener extends BaseListener {
+public final class TasksListener implements Listener {
 
-    public TaskListener(SuperiorPrisonPlugin loader) {
-        super(loader);
+    private final SuperiorPrisonPlugin plugin;
+
+    public TasksListener(SuperiorPrisonPlugin plugin) {
+        this.plugin = plugin;
     }
 
     @EventHandler
@@ -44,7 +47,7 @@ public class TaskListener extends BaseListener {
     }
 
     private PlayerManager getManager() {
-        return loader.getPlayerManager();
+        return plugin.getPlayerManager();
     }
 
 }

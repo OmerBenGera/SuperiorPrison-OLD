@@ -4,6 +4,7 @@ import com.bgsoftware.superiorprison.objects.Prisoner;
 import com.bgsoftware.superiorprison.tasks.Task;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.*;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 import com.bgsoftware.superiorprison.managers.PlayerManager;
@@ -11,10 +12,12 @@ import com.bgsoftware.superiorprison.tasks.types.ChatTask;
 import com.bgsoftware.superiorprison.tasks.types.InteractTask;
 import com.bgsoftware.superiorprison.tasks.types.ScrollTask;
 
-public class PlayerListener extends BaseListener {
+public final class PlayersListener implements Listener {
 
-    public PlayerListener(SuperiorPrisonPlugin loader) {
-        super(loader);
+    private final SuperiorPrisonPlugin plugin;
+
+    public PlayersListener(SuperiorPrisonPlugin plugin) {
+        this.plugin = plugin;
     }
 
     @EventHandler (priority = EventPriority.HIGHEST)
@@ -62,6 +65,7 @@ public class PlayerListener extends BaseListener {
     }
 
     private PlayerManager getManager() {
-        return loader.getPlayerManager();
+        return plugin.getPlayerManager();
     }
+
 }
