@@ -38,10 +38,10 @@ public class RanksMenu extends ListMenu {
     private List<Button> getListItems() {
         List<Button> list = new ArrayList<>();
 
-        Rank rank = SuperiorPrisonPlugin.getInstance().getManager().getRankManager().getDefaultRank();
+        Rank rank = SuperiorPrisonPlugin.getPlugin().getManager().getRankManager().getDefaultRank();
 
         while (rank != null) {
-            list.add(new RankDisplayButton(this, SuperiorPrisonPlugin.getInstance().getManager().getPlayerManager().getPrisoner(player), rank));
+            list.add(new RankDisplayButton(this, SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner(player), rank));
             rank = rank.getNext();
         }
 

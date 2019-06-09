@@ -1,13 +1,11 @@
 package com.bgsoftware.superiorprison.setup;
 
 import com.bgsoftware.superiorprison.utils.PlaceholdersUtils;
-import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import com.bgsoftware.superiorprison.objects.Prisoner;
 
-@Getter
 public enum Message {
 
     PREFIX("§e§lPrison §7"),
@@ -66,5 +64,9 @@ public enum Message {
 
     public void broadcast() {
         broadcast("");
+    }
+
+    public String[] getMessage() {
+        return message;
     }
 }

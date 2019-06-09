@@ -17,6 +17,6 @@ public class MinePermissionButton extends MineButton {
     @Override
     public void onClick(InventoryClickEvent event) {
         menu.close();
-        new MinePermissionEditTask(SuperiorPrisonPlugin.getInstance().getManager().getPlayerManager().getPrisoner(menu.getPlayer()), mine).start();
+        new MinePermissionEditTask(SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner(menu.getPlayer()), mine).start();
     }
 }

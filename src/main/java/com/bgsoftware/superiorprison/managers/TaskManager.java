@@ -2,14 +2,12 @@ package com.bgsoftware.superiorprison.managers;
 
 import com.bgsoftware.superiorprison.tasks.Task;
 import com.bgsoftware.superiorprison.tasks.TaskState;
-import lombok.Getter;
 import org.bukkit.scheduler.BukkitRunnable;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Getter
 public class TaskManager extends BukkitRunnable implements BaseManager {
 
     private SuperiorPrisonPlugin loader;
@@ -45,5 +43,9 @@ public class TaskManager extends BukkitRunnable implements BaseManager {
     @Override
     public void save() {
         cancel();
+    }
+
+    public Set<Task> getTasks() {
+        return tasks;
     }
 }

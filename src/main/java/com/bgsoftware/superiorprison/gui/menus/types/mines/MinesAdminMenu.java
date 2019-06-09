@@ -36,7 +36,7 @@ public class MinesAdminMenu extends ListMenu {
     private List<Button> getButtonList() {
         List<Button> list = new ArrayList<>();
 
-        for (Mine mine : SuperiorPrisonPlugin.getInstance().getManager().getMineManager().getMines())
+        for (Mine mine : SuperiorPrisonPlugin.getPlugin().getManager().getMineManager().getMines())
             list.add(new MineAdminDisplayButton(this, mine));
 
         list.add(new CreateMineButton(this));

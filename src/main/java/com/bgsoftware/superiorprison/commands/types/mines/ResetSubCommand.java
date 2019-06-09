@@ -24,7 +24,7 @@ public class ResetSubCommand extends SubCommand {
         }
 
         player.sendMessage("loading");
-        for (Mine mine : SuperiorPrisonPlugin.getInstance().getManager().getMineManager().getMines()) {
+        for (Mine mine : SuperiorPrisonPlugin.getPlugin().getManager().getMineManager().getMines()) {
             mine.reset();
         }
         player.sendMessage("done");

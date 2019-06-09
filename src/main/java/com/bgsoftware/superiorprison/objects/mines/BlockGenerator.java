@@ -1,13 +1,11 @@
 package com.bgsoftware.superiorprison.objects.mines;
 
-import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-@Getter
 public class BlockGenerator {
 
     private List<BlockRate> rates;
@@ -97,5 +95,9 @@ public class BlockGenerator {
         Block block = blocks.get(ThreadLocalRandom.current().nextInt(blocks.size()));
         blocks.remove(block);
         return block;
+    }
+
+    public List<BlockRate> getRates() {
+        return rates;
     }
 }

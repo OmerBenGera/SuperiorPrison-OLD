@@ -1,14 +1,12 @@
 package com.bgsoftware.superiorprison.managers;
 
 import com.bgsoftware.superiorprison.gui.menus.Menu;
-import lombok.Getter;
 import org.bukkit.inventory.Inventory;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Getter
 public class MenuManager implements BaseManager {
 
     private SuperiorPrisonPlugin loader;
@@ -45,4 +43,7 @@ public class MenuManager implements BaseManager {
         return null;
     }
 
+    public Set<Menu> getMenus() {
+        return menus;
+    }
 }

@@ -2,7 +2,6 @@ package com.bgsoftware.superiorprison.gui.menus.types.ranks;
 
 import com.bgsoftware.superiorprison.gui.MenuItem;
 import com.bgsoftware.superiorprison.gui.menus.Menu;
-import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import com.bgsoftware.superiorprison.gui.buttons.general.ExitButton;
@@ -13,7 +12,6 @@ import com.bgsoftware.superiorprison.gui.buttons.ranks.editor.RankPrefixButton;
 import com.bgsoftware.superiorprison.gui.buttons.ranks.editor.RankPriceButton;
 import com.bgsoftware.superiorprison.objects.ranks.Rank;
 
-@Getter
 public class RankEditor extends Menu {
 
     private Rank rank;
@@ -40,4 +38,7 @@ public class RankEditor extends Menu {
         setButton(23, new RankPrefixButton(this));
     }
 
+    public Rank getRank() {
+        return rank;
+    }
 }

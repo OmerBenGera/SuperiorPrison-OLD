@@ -1,9 +1,7 @@
 package com.bgsoftware.superiorprison.managers;
 
-import lombok.Getter;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 
-@Getter
 public class Manager implements BaseManager {
 
     private SuperiorPrisonPlugin loader;
@@ -53,5 +51,37 @@ public class Manager implements BaseManager {
     public void reload() {
         save();
         load();
+    }
+
+    public FileManager getFileManager() {
+        return fileManager;
+    }
+
+    public CommandManager getCommandManager() {
+        return commandManager;
+    }
+
+    public ListenerManager getListenerManager() {
+        return listenerManager;
+    }
+
+    public RankManager getRankManager() {
+        return rankManager;
+    }
+
+    public MineManager getMineManager() {
+        return mineManager;
+    }
+
+    public MenuManager getMenuManager() {
+        return menuManager;
+    }
+
+    public TaskManager getTaskManager() {
+        return taskManager;
+    }
+
+    public PlayerManager getPlayerManager() {
+        return playerManager;
     }
 }

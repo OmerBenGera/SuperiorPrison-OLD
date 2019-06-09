@@ -1,13 +1,11 @@
 package com.bgsoftware.superiorprison.gui.buttons.general;
 
-import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import com.bgsoftware.superiorprison.gui.buttons.Button;
 import com.bgsoftware.superiorprison.gui.menus.ListMenu;
 import com.bgsoftware.superiorprison.utils.ItemUtils;
 
-@Getter
 public class ScrollButton extends Button {
 
     private ScrollAction action;
@@ -22,7 +20,10 @@ public class ScrollButton extends Button {
         ((ListMenu) menu).scroll(action.getModifier());
     }
 
-    @Getter
+    public ScrollAction getAction() {
+        return action;
+    }
+
     public enum ScrollAction {
 
         LEFT("§e§l<", -1),
@@ -36,6 +37,13 @@ public class ScrollButton extends Button {
             this.modifier = modifier;
         }
 
+        public String getDisplay() {
+            return display;
+        }
+
+        public int getModifier() {
+            return modifier;
+        }
     }
 
 }

@@ -17,6 +17,6 @@ public class CreateCommandButton extends RankButton {
     @Override
     public void onClick(InventoryClickEvent event) {
         menu.close();
-        new CommandCreateTask(SuperiorPrisonPlugin.getInstance().getManager().getPlayerManager().getPrisoner(menu.getPlayer()), rank).start();
+        new CommandCreateTask(SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner(menu.getPlayer()), rank).start();
     }
 }

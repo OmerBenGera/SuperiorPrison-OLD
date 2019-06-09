@@ -12,7 +12,7 @@ import java.net.URL;
 @SuppressWarnings("WeakerAccess")
 public final class Updater {
 
-    private static SuperiorPrisonPlugin plugin = SuperiorPrisonPlugin.getInstance();
+    private static SuperiorPrisonPlugin plugin = SuperiorPrisonPlugin.getPlugin();
     private static String latestVersion, versionDescription;
 
     static{

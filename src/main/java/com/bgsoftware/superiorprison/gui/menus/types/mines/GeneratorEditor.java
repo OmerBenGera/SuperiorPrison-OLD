@@ -7,14 +7,11 @@ import com.bgsoftware.superiorprison.gui.buttons.mines.editor.BlockRateButton;
 import com.bgsoftware.superiorprison.gui.menus.ListMenu;
 import com.bgsoftware.superiorprison.objects.mines.BlockRate;
 import com.bgsoftware.superiorprison.objects.mines.Mine;
-import lombok.Getter;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
 import java.util.ArrayList;
 
-@Getter
 public class GeneratorEditor extends ListMenu {
 
     private Mine mine;
@@ -55,5 +52,9 @@ public class GeneratorEditor extends ListMenu {
         }
 
         super.onClick(event);
+    }
+
+    public Mine getMine() {
+        return mine;
     }
 }

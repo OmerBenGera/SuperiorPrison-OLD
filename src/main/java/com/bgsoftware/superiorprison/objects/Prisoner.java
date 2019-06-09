@@ -3,7 +3,6 @@ package com.bgsoftware.superiorprison.objects;
 import com.bgsoftware.superiorprison.managers.RankManager;
 import com.bgsoftware.superiorprison.setup.Message;
 import com.bgsoftware.superiorprison.tasks.Task;
-import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import org.bukkit.entity.Player;
@@ -14,7 +13,6 @@ import com.bgsoftware.superiorprison.tasks.TaskFlag;
 
 import java.util.*;
 
-@Getter
 public class Prisoner implements ConfigurationSerializable {
 
     private UUID uuid;
@@ -25,7 +23,7 @@ public class Prisoner implements ConfigurationSerializable {
     private Set<Task> tasks;
 
     public Prisoner(UUID uuid) {
-        RankManager rankManager = SuperiorPrisonPlugin.getInstance().getManager().getRankManager();
+        RankManager rankManager = SuperiorPrisonPlugin.getPlugin().getManager().getRankManager();
 
         this.uuid = uuid;
         file = new PlayerFile(uuid);
@@ -34,7 +32,7 @@ public class Prisoner implements ConfigurationSerializable {
                 rankManager.getDefaultRank();
         tasks = new HashSet<>();
 
-        SuperiorPrisonPlugin.getInstance().getManager().getPlayerManager().getPlayers().add(this);
+        SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPlayers().add(this);
     }
 
     @Override
@@ -53,7 +51,7 @@ public class Prisoner implements ConfigurationSerializable {
         file.setMap(serialize());
         file.save();
 
-        SuperiorPrisonPlugin.getInstance().getManager().getPlayerManager().getPlayers().remove(this);
+        SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPlayers().remove(this);
     }
 
     public boolean hasTask(Class type) {
@@ -79,7 +77,7 @@ public class Prisoner implements ConfigurationSerializable {
     }
 
     public Rank getNextRank() {
-        return rank == null ? SuperiorPrisonPlugin.getInstance().getManager().getRankManager().getDefaultRank() : rank.getNext();
+        return rank == null ? SuperiorPrisonPlugin.getPlugin().getManager().getRankManager().getDefaultRank() : rank.getNext();
     }
 
     public Player getPlayer() {
@@ -109,5 +107,17 @@ public class Prisoner implements ConfigurationSerializable {
         SuperiorPrisonPlugin.getEconomy().withdrawPlayer(getPlayer(), amount);
 
         return true;
+    }
+
+    public Set<Task> getTasks() {
+        return tasks;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public Rank getRank() {
+        return rank;
     }
 }

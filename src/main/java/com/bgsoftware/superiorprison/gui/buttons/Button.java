@@ -1,17 +1,14 @@
 package com.bgsoftware.superiorprison.gui.buttons;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import com.bgsoftware.superiorprison.gui.menus.Menu;
 
-@Getter
 public abstract class Button {
 
     protected Menu menu;
 
-    @Setter protected ItemStack item;
+    protected ItemStack item;
 
     public Button(Menu menu, ItemStack item) {
         this.menu = menu;
@@ -21,5 +18,13 @@ public abstract class Button {
     public abstract void onClick(InventoryClickEvent event);
 
     public void updateItem() {
+    }
+
+    public ItemStack getItem() {
+        return item;
+    }
+
+    public void setItem(ItemStack item) {
+        this.item = item;
     }
 }

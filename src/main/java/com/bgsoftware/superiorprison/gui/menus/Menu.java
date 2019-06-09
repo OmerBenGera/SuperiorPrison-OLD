@@ -1,7 +1,6 @@
 package com.bgsoftware.superiorprison.gui.menus;
 
 import com.bgsoftware.superiorprison.gui.buttons.Button;
-import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -11,7 +10,6 @@ import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 import java.util.HashMap;
 import java.util.Map;
 
-@Getter
 public class Menu {
 
     protected Player player;
@@ -25,7 +23,7 @@ public class Menu {
         inventory = Bukkit.createInventory(null, rows * 9, title);
         buttons = new HashMap<>();
 
-        SuperiorPrisonPlugin.getInstance().getManager().getMenuManager().registerMenu(this);
+        SuperiorPrisonPlugin.getPlugin().getManager().getMenuManager().registerMenu(this);
     }
 
     public void onClick(InventoryClickEvent event) {
@@ -62,7 +60,7 @@ public class Menu {
 
     public void close() {
         player.closeInventory();
-        SuperiorPrisonPlugin.getInstance().getManager().getMenuManager().removeMenu(this);
+        SuperiorPrisonPlugin.getPlugin().getManager().getMenuManager().removeMenu(this);
     }
 
     public void setButton(int slot, Button button) {
@@ -75,4 +73,11 @@ public class Menu {
         }
     }
 
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
 }

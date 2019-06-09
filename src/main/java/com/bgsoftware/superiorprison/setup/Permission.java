@@ -1,9 +1,7 @@
 package com.bgsoftware.superiorprison.setup;
 
-import lombok.Getter;
 import org.bukkit.command.CommandSender;
 
-@Getter
 public enum Permission {
 
     CMD_RANK("superiorprison.commands.ranks.normal"),
@@ -23,5 +21,9 @@ public enum Permission {
 
     public boolean hasPermission(CommandSender sender) {
         return sender.hasPermission(permission);
+    }
+
+    public String getPermission() {
+        return permission;
     }
 }

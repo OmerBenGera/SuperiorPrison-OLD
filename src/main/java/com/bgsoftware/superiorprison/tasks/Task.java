@@ -1,13 +1,11 @@
 package com.bgsoftware.superiorprison.tasks;
 
-import lombok.Getter;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-@Getter
 public abstract class Task {
 
     protected TaskState state;
@@ -18,7 +16,7 @@ public abstract class Task {
         state = TaskState.PRE_PROCESS;
         flags = new HashSet<>();
 
-        SuperiorPrisonPlugin.getInstance().getManager().getTaskManager().getTasks().add(this);
+        SuperiorPrisonPlugin.getPlugin().getManager().getTaskManager().getTasks().add(this);
     }
 
     protected void addFlags(TaskFlag... flags) {
@@ -39,4 +37,7 @@ public abstract class Task {
 
     public abstract void update();
 
+    public TaskState getState() {
+        return state;
+    }
 }

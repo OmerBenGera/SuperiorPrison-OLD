@@ -7,7 +7,6 @@ import com.bgsoftware.superiorprison.gui.buttons.ranks.editor.commands.CreateCom
 import com.bgsoftware.superiorprison.gui.menus.ListMenu;
 import com.bgsoftware.superiorprison.objects.ranks.Command;
 import com.bgsoftware.superiorprison.objects.ranks.Rank;
-import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import com.bgsoftware.superiorprison.gui.buttons.general.ExitButton;
@@ -16,7 +15,6 @@ import com.bgsoftware.superiorprison.gui.buttons.general.ReturnButton;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
 public class RankCommandsEditor extends ListMenu {
 
     private Rank rank;
@@ -58,5 +56,9 @@ public class RankCommandsEditor extends ListMenu {
         buttons.add(new CreateCommandButton(this));
 
         return buttons;
+    }
+
+    public Rank getRank() {
+        return rank;
     }
 }

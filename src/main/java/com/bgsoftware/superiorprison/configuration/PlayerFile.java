@@ -16,7 +16,7 @@ public class PlayerFile extends YamlConfiguration {
     private File file;
 
     public PlayerFile(UUID uuid) {
-        file = new File(SuperiorPrisonPlugin.getInstance().getDataFolder(), "players/" + uuid.toString() + ".yml");
+        file = new File(SuperiorPrisonPlugin.getPlugin().getDataFolder(), "players/" + uuid.toString() + ".yml");
 
         reload();
     }

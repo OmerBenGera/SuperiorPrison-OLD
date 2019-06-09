@@ -37,7 +37,7 @@ public class RanksAdminMenu extends ListMenu {
     private List<Button> getButtonList() {
         List<Button> list = new ArrayList<>();
 
-        for (Rank rank : SuperiorPrisonPlugin.getInstance().getManager().getRankManager().listRanks())
+        for (Rank rank : SuperiorPrisonPlugin.getPlugin().getManager().getRankManager().listRanks())
             list.add(new RankAdminDisplayButton(this, rank));
 
         list.add(new CreateRankButton(this));

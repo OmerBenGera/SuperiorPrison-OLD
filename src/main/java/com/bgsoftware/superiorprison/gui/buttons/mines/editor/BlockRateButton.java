@@ -6,10 +6,9 @@ import com.bgsoftware.superiorprison.gui.menus.types.mines.GeneratorEditor;
 import com.bgsoftware.superiorprison.objects.mines.BlockRate;
 import com.bgsoftware.superiorprison.tasks.player.edit.mine.GeneratorEditTask;
 import com.bgsoftware.superiorprison.utils.ItemUtils;
-import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
-@Getter
+
 public class BlockRateButton extends Button {
 
     private BlockRate rate;
@@ -26,7 +25,7 @@ public class BlockRateButton extends Button {
             case LEFT:
                 event.getWhoClicked().closeInventory();
                 new GeneratorEditTask(
-                        SuperiorPrisonPlugin.getInstance().getManager().getPlayerManager().getPrisoner((Player)event.getWhoClicked()),
+                        SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner((Player)event.getWhoClicked()),
                         (GeneratorEditor) menu,
                         rate
                 ).start();

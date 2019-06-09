@@ -18,7 +18,7 @@ public class ConfirmSubCommand extends SubCommand {
     @Override
     public void execute(CommandSender sender, String[] args) {
         Player player = (Player) sender;
-        Prisoner prisoner = SuperiorPrisonPlugin.getInstance().getManager().getPlayerManager().getPrisoner(player);
+        Prisoner prisoner = SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner(player);
         Rank rank = prisoner.getNextRank();
 
         if (prisoner.hasEnoughMoney(rank.getPrice()))

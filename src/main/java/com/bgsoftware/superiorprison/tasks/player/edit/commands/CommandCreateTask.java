@@ -38,7 +38,7 @@ public class CommandCreateTask extends PlayerTask implements ChatTask {
 
     @Override
     public void onPlayerChat(AsyncPlayerChatEvent event) {
-        RankManager rankManager = SuperiorPrisonPlugin.getInstance().getManager().getRankManager();
+        RankManager rankManager = SuperiorPrisonPlugin.getPlugin().getManager().getRankManager();
 
         event.setCancelled(true);
 

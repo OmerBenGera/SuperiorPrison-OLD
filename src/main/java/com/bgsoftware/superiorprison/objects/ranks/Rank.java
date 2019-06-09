@@ -1,15 +1,11 @@
 package com.bgsoftware.superiorprison.objects.ranks;
 
 import com.bgsoftware.superiorprison.managers.RankManager;
-import lombok.Getter;
-import lombok.Setter;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 
 import java.util.*;
 
-@Getter
-@Setter
 public class Rank implements ConfigurationSerializable {
 
     private UUID uuid;
@@ -24,7 +20,7 @@ public class Rank implements ConfigurationSerializable {
     private Rank next;
 
     public Rank() {
-        RankManager manager = SuperiorPrisonPlugin.getInstance().getManager().getRankManager();
+        RankManager manager = SuperiorPrisonPlugin.getPlugin().getManager().getRankManager();
         List<Rank> ranks = manager.listRanks();
 
         uuid = UUID.randomUUID();
@@ -59,7 +55,7 @@ public class Rank implements ConfigurationSerializable {
         for (String s : (List<String>) map.get("commands"))
             commands.add(new Command(s));
 
-        SuperiorPrisonPlugin.getInstance().getManager().getRankManager().getRanks().add(this);
+        SuperiorPrisonPlugin.getPlugin().getManager().getRankManager().getRanks().add(this);
     }
 
     @Override
@@ -81,7 +77,7 @@ public class Rank implements ConfigurationSerializable {
     }
 
     public void remove() {
-        RankManager manager = SuperiorPrisonPlugin.getInstance().getManager().getRankManager();
+        RankManager manager = SuperiorPrisonPlugin.getPlugin().getManager().getRankManager();
         List<Rank> ranks = manager.listRanks();
 
         boolean found = false;
@@ -119,5 +115,45 @@ public class Rank implements ConfigurationSerializable {
 
     public boolean hasNext() {
         return next != null;
+    }
+
+    public Rank getNext() {
+        return next;
+    }
+
+    public void setNext(Rank next) {
+        this.next = next;
+    }
+
+    public UUID getUuid() {
+        return uuid;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Set<Command> getCommands() {
+        return commands;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 }

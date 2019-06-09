@@ -3,7 +3,6 @@ package com.bgsoftware.superiorprison.tasks.player.edit.mine;
 import com.bgsoftware.superiorprison.objects.Prisoner;
 import com.bgsoftware.superiorprison.objects.mines.Region;
 import com.bgsoftware.superiorprison.setup.Message;
-import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -17,7 +16,6 @@ import com.bgsoftware.superiorprison.tasks.player.PlayerTask;
 import com.bgsoftware.superiorprison.tasks.types.InteractTask;
 import com.bgsoftware.superiorprison.tasks.types.ScrollTask;
 
-@Getter
 public class RegionTask extends PlayerTask implements InteractTask, ScrollTask {
 
     private Region region;

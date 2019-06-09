@@ -4,13 +4,11 @@ import com.bgsoftware.superiorprison.gui.MenuItem;
 import com.bgsoftware.superiorprison.gui.buttons.mines.editor.*;
 import com.bgsoftware.superiorprison.gui.menus.Menu;
 import com.bgsoftware.superiorprison.objects.mines.Mine;
-import lombok.Getter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import com.bgsoftware.superiorprison.gui.buttons.general.ExitButton;
 import com.bgsoftware.superiorprison.gui.buttons.general.ReturnButton;
 
-@Getter
 public class MineEditor extends Menu {
 
     private Mine mine;
@@ -37,5 +35,11 @@ public class MineEditor extends Menu {
         setButton(21, new MineNameButton(this));
         setButton(23, new MineSpawnButton(this));
     }
+
+    public Mine getMine() {
+        return mine;
+    }
+
+
 
 }

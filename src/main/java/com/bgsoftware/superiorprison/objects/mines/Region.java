@@ -1,8 +1,6 @@
 package com.bgsoftware.superiorprison.objects.mines;
 
 import com.bgsoftware.superiorprison.utils.ConfigUtils;
-import lombok.Getter;
-import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -13,8 +11,6 @@ import org.bukkit.util.Vector;
 
 import java.util.*;
 
-@Getter
-@Setter
 public class Region implements ConfigurationSerializable {
 
     private World world;

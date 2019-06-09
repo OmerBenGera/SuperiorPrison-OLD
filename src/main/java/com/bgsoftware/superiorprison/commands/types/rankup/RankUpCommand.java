@@ -27,7 +27,7 @@ public class RankUpCommand extends BaseCommand {
         }
 
         Player player = (Player) sender;
-        Prisoner prisoner = SuperiorPrisonPlugin.getInstance().getManager().getPlayerManager().getPrisoner(player);
+        Prisoner prisoner = SuperiorPrisonPlugin.getPlugin().getManager().getPlayerManager().getPrisoner(player);
 
         if (!permission.hasPermission(player)) {
             Message.CMD_NO_PERMISSION.send(player);

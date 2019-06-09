@@ -1,20 +1,17 @@
 package com.bgsoftware.superiorprison.managers;
 
-import lombok.Getter;
-import lombok.Setter;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 import com.bgsoftware.superiorprison.configuration.ConfigFile;
 import com.bgsoftware.superiorprison.objects.ranks.Rank;
 
 import java.util.*;
 
-@Getter
 public class RankManager implements BaseManager {
 
     private SuperiorPrisonPlugin loader;
 
     private Set<Rank> ranks;
-    @Setter private Rank defaultRank;
+    private Rank defaultRank;
 
     public RankManager(SuperiorPrisonPlugin loader) {
         this.loader = loader;
@@ -81,5 +78,17 @@ public class RankManager implements BaseManager {
             if (rank.getUuid().equals(uuid))
                 return rank;
         return null;
+    }
+
+    public void setDefaultRank(Rank defaultRank) {
+        this.defaultRank = defaultRank;
+    }
+
+    public Rank getDefaultRank() {
+        return defaultRank;
+    }
+
+    public Set<Rank> getRanks() {
+        return ranks;
     }
 }

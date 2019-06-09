@@ -1,12 +1,10 @@
 package com.bgsoftware.superiorprison.managers;
 
-import lombok.Getter;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 import com.bgsoftware.superiorprison.configuration.ConfigFile;
 
 import java.io.File;
 
-@Getter
 public class FileManager implements BaseManager {
 
     private SuperiorPrisonPlugin loader;
@@ -38,5 +36,17 @@ public class FileManager implements BaseManager {
     public void save() {
         ranksYaml.save();
         minesYaml.save();
+    }
+
+    public ConfigFile getSettingsYaml() {
+        return settingsYaml;
+    }
+
+    public ConfigFile getRanksYaml() {
+        return ranksYaml;
+    }
+
+    public ConfigFile getMinesYaml() {
+        return minesYaml;
     }
 }

@@ -1,7 +1,6 @@
 package com.bgsoftware.superiorprison.managers;
 
 import com.bgsoftware.superiorprison.objects.Prisoner;
-import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
@@ -10,7 +9,6 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-@Getter
 public class PlayerManager implements BaseManager {
 
     private SuperiorPrisonPlugin loader;
@@ -44,5 +42,9 @@ public class PlayerManager implements BaseManager {
 
     public Prisoner getPrisoner(Player player) {
         return getPrisoner(player.getUniqueId());
+    }
+
+    public Set<Prisoner> getPlayers() {
+        return players;
     }
 }

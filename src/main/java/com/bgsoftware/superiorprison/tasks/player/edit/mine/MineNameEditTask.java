@@ -43,7 +43,7 @@ public class MineNameEditTask extends PlayerTask implements ChatTask {
 
     @Override
     public void onPlayerChat(AsyncPlayerChatEvent event) {
-        MineManager manager = SuperiorPrisonPlugin.getInstance().getManager().getMineManager();
+        MineManager manager = SuperiorPrisonPlugin.getPlugin().getManager().getMineManager();
 
         event.setCancelled(true);
 

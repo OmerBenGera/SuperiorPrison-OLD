@@ -1,16 +1,14 @@
 package com.bgsoftware.superiorprison;
 
 import com.bgsoftware.superiorprison.managers.Manager;
-import lombok.Getter;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-@Getter
 public class SuperiorPrisonPlugin extends JavaPlugin {
 
-    @Getter private static SuperiorPrisonPlugin instance;
-    @Getter private static Economy economy;
+    private static SuperiorPrisonPlugin instance;
+    private static Economy economy;
 
     private Manager manager;
 
@@ -41,4 +39,15 @@ public class SuperiorPrisonPlugin extends JavaPlugin {
         return economy != null;
     }
 
+    public static SuperiorPrisonPlugin getPlugin() {
+        return instance;
+    }
+
+    public static Economy getEconomy() {
+        return economy;
+    }
+
+    public Manager getManager() {
+        return manager;
+    }
 }

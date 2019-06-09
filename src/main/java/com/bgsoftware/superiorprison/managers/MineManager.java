@@ -1,6 +1,5 @@
 package com.bgsoftware.superiorprison.managers;
 
-import lombok.Getter;
 import org.bukkit.configuration.file.FileConfiguration;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 import com.bgsoftware.superiorprison.configuration.ConfigFile;
@@ -10,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@Getter
 public class MineManager implements BaseManager {
 
     private SuperiorPrisonPlugin loader;
@@ -50,5 +48,9 @@ public class MineManager implements BaseManager {
                 return mine;
         }
         return null;
+    }
+
+    public List<Mine> getMines() {
+        return mines;
     }
 }

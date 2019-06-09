@@ -2,8 +2,6 @@ package com.bgsoftware.superiorprison.objects.mines;
 
 import com.bgsoftware.superiorprison.managers.MineManager;
 import com.bgsoftware.superiorprison.utils.ConfigUtils;
-import lombok.Getter;
-import lombok.Setter;
 import org.bukkit.Location;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
@@ -13,15 +11,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-@Getter
 public class Mine implements ConfigurationSerializable {
 
     private UUID uuid;
 
-    @Setter private String name;
-    @Setter private String permission;
+    private String name;
+    private String permission;
 
-    @Setter private Location spawn;
+    private Location spawn;
     private Region region;
 
     private BlockGenerator blockGenerator;
@@ -77,7 +74,38 @@ public class Mine implements ConfigurationSerializable {
     }
 
     private static MineManager getManager() {
-        return SuperiorPrisonPlugin.getInstance().getManager().getMineManager();
+        return SuperiorPrisonPlugin.getPlugin().getManager().getMineManager();
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPermission(String permission) {
+        this.permission = permission;
+    }
+
+    public BlockGenerator getBlockGenerator() {
+        return blockGenerator;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setSpawn(Location spawn) {
+        this.spawn = spawn;
+    }
+
+    public Location getSpawn() {
+        return spawn;
+    }
+
+    public String getPermission() {
+        return permission;
+    }
+
+    public Region getRegion() {
+        return region;
+    }
 }
