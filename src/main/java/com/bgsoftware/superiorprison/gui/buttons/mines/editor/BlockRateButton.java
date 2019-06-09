@@ -2,12 +2,11 @@ package com.bgsoftware.superiorprison.gui.buttons.mines.editor;
 
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 import com.bgsoftware.superiorprison.gui.buttons.Button;
-import com.bgsoftware.superiorprison.gui.menus.Menu;
 import com.bgsoftware.superiorprison.gui.menus.types.mines.GeneratorEditor;
 import com.bgsoftware.superiorprison.objects.mines.BlockRate;
+import com.bgsoftware.superiorprison.tasks.player.edit.mine.GeneratorEditTask;
 import com.bgsoftware.superiorprison.utils.ItemUtils;
 import lombok.Getter;
-import net.wesjd.anvilgui.AnvilGUI;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 @Getter
@@ -16,7 +15,7 @@ public class BlockRateButton extends Button {
     private BlockRate rate;
 
     public BlockRateButton(GeneratorEditor menu, BlockRate rate) {
-        super(menu, ItemUtils.build(rate.getMaterial(), "§6§nRate:§e " + rate.getRate(), "", "§aLeft-Click to Edit", "§cRight-Click to Remove"));
+        super(menu, ItemUtils.build(rate.getMaterial(), 0, "§6§nRate:§e " + rate.getRate(), "", "§aLeft-Click to Edit", "§cRight-Click to Remove"));
 
         this.rate = rate;
     }
@@ -25,25 +24,12 @@ public class BlockRateButton extends Button {
     public void onClick(InventoryClickEvent event) {
         switch (event.getClick()) {
             case LEFT:
-                new AnvilGUI(
-                        SuperiorPrisonPlugin.getInstance(),
-                        (Player) event.getWhoClicked(),
-                        "Enter a new Percentage",
-                        (player, reply) -> {
-
-                            try {
-                                double input = Double.valueOf(reply);
-
-                                if (((GeneratorEditor) menu).getMine().getBlockGenerator().getSolidPercent(rate) + input > 100)
-                                    return "Higher than 100";
-
-                                rate.setRate(input);
-                                new GeneratorEditor(player, ((GeneratorEditor) menu).getMine()).open();
-                                return null;
-                            } catch (Exception e) {
-                                return "Invalid Number";
-                            }
-                        });
+                event.getWhoClicked().closeInventory();
+                new GeneratorEditTask(
+                        SuperiorPrisonPlugin.getInstance().getManager().getPlayerManager().getPrisoner((Player)event.getWhoClicked()),
+                        (GeneratorEditor) menu,
+                        rate
+                ).start();
                 break;
             case RIGHT:
                 ((GeneratorEditor) menu).getMine().getBlockGenerator().getRates().remove(rate);
