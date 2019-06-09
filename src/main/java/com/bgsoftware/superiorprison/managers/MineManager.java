@@ -9,35 +9,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class MineManager implements BaseManager {
+public final class MineManager {
 
-    private SuperiorPrisonPlugin loader;
+    private SuperiorPrisonPlugin plugin;
 
-    private List<Mine> mines;
+    private List<Mine> mines = new ArrayList<>();
 
-    public MineManager(SuperiorPrisonPlugin loader) {
-        this.loader = loader;
-    }
+    public MineManager(SuperiorPrisonPlugin plugin) {
+        this.plugin = plugin;
 
-    @Override
-    @SuppressWarnings("unchecked")
-    public void load() {
-        mines = new ArrayList<>();
-
-        FileConfiguration config = loader.getFileManager().getMinesYaml().getBukkitConfig();
+        FileConfiguration config = plugin.getFileManager().getMinesYaml().getBukkitConfig();
         for (Map<?, ?> map : config.getMapList("mines"))
             new Mine((Map<String, Object>) map);
-
     }
 
-    @Override
     public void save() {
         List<Map<String, Object>> list = new ArrayList<>();
 
         for (Mine mine : mines)
             list.add(mine.serialize());
 
-        ConfigFile file = loader.getFileManager().getMinesYaml();
+        ConfigFile file = plugin.getFileManager().getMinesYaml();
 
         file.getBukkitConfig().set("mines", list);
     }

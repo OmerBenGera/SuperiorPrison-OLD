@@ -9,25 +9,15 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
-public class PlayerManager implements BaseManager {
+public final class PlayerManager {
 
-    private SuperiorPrisonPlugin loader;
+    private Set<Prisoner> players = new HashSet<>();
 
-    private Set<Prisoner> players;
-
-    public PlayerManager(SuperiorPrisonPlugin loader) {
-        this.loader = loader;
-    }
-
-    @Override
-    public void load() {
-        players = new HashSet<>();
-
+    public PlayerManager(SuperiorPrisonPlugin plugin) {
         for (Player player : Bukkit.getOnlinePlayers())
             new Prisoner(player.getUniqueId());
     }
 
-    @Override
     public void save() {
         for (Prisoner prisoner : new HashSet<>(players))
             prisoner.unload();

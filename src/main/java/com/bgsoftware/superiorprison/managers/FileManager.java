@@ -5,21 +5,14 @@ import com.bgsoftware.superiorprison.configuration.ConfigFile;
 
 import java.io.File;
 
-public class FileManager implements BaseManager {
-
-    private SuperiorPrisonPlugin loader;
+public final class FileManager {
 
     private ConfigFile settingsYaml;
     private ConfigFile ranksYaml;
     private ConfigFile minesYaml;
 
-    public FileManager(SuperiorPrisonPlugin loader) {
-        this.loader = loader;
-    }
-
-    @Override
-    public void load() {
-        File dataFolder = loader.getDataFolder();
+    public FileManager(SuperiorPrisonPlugin plugin) {
+        File dataFolder = plugin.getDataFolder();
         File playersFolder = new File(dataFolder, "players");
 
         if (!dataFolder.exists())
@@ -27,12 +20,11 @@ public class FileManager implements BaseManager {
         if (!playersFolder.exists())
             playersFolder.mkdirs();
 
-        settingsYaml = new ConfigFile("settings.yml", loader.getDataFolder());
-        ranksYaml = new ConfigFile("ranks.yml", loader.getDataFolder());
-        minesYaml = new ConfigFile("mines.yml", loader.getDataFolder());
+        settingsYaml = new ConfigFile("settings.yml", plugin.getDataFolder());
+        ranksYaml = new ConfigFile("ranks.yml", plugin.getDataFolder());
+        minesYaml = new ConfigFile("mines.yml", plugin.getDataFolder());
     }
 
-    @Override
     public void save() {
         ranksYaml.save();
         minesYaml.save();

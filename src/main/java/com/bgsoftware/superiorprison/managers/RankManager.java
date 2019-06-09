@@ -6,23 +6,17 @@ import com.bgsoftware.superiorprison.objects.ranks.Rank;
 
 import java.util.*;
 
-public class RankManager implements BaseManager {
+public final class RankManager{
 
-    private SuperiorPrisonPlugin loader;
+    private SuperiorPrisonPlugin plugin;
 
-    private Set<Rank> ranks;
+    private Set<Rank> ranks = new HashSet<>();
     private Rank defaultRank;
 
-    public RankManager(SuperiorPrisonPlugin loader) {
-        this.loader = loader;
-    }
+    public RankManager(SuperiorPrisonPlugin plugin) {
+        this.plugin = plugin;
 
-    @SuppressWarnings("unchecked")
-    @Override
-    public void load() {
-        ranks = new HashSet<>();
-
-        ConfigFile file = loader.getFileManager().getRanksYaml();
+        ConfigFile file = plugin.getFileManager().getRanksYaml();
 
         // Loading the ranks
         Map<Rank, String> nextMap = new HashMap<>();
@@ -36,18 +30,17 @@ public class RankManager implements BaseManager {
 
         // Loading the default ranks
         defaultRank = !file.getBukkitConfig().contains("default_rank") || file.getBukkitConfig().get("default_rank").equals("none") ?
-                    null :
-                    getRank(UUID.fromString(file.getBukkitConfig().getString("default_rank")));
+                null :
+                getRank(UUID.fromString(file.getBukkitConfig().getString("default_rank")));
     }
 
-    @Override
     public void save() {
         List<Map<String, Object>> list = new ArrayList<>();
 
         for (Rank rank : ranks)
             list.add(rank.serialize());
 
-        ConfigFile file = loader.getFileManager().getRanksYaml();
+        ConfigFile file = plugin.getFileManager().getRanksYaml();
 
         file.getBukkitConfig().set("ranks", list);
         file.getBukkitConfig().set("default_rank", defaultRank == null ? "none" : defaultRank.getUuid().toString());

@@ -5,25 +5,11 @@ import com.bgsoftware.superiorprison.commands.types.rankup.RankUpCommand;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 import com.bgsoftware.superiorprison.commands.types.ranks.RanksCommand;
 
-public class CommandManager implements BaseManager {
+public final class CommandManager {
 
-    private SuperiorPrisonPlugin loader;
-
-    public CommandManager(SuperiorPrisonPlugin loader) {
-        this.loader = loader;
-
-        new RanksCommand(loader);
-        new RankUpCommand(loader);
-        new MinesCommand(loader);
-    }
-
-    @Override
-    public void load() {
-
-    }
-
-    @Override
-    public void save() {
-
+    public CommandManager(SuperiorPrisonPlugin plugin) {
+        new RanksCommand(plugin);
+        new RankUpCommand(plugin);
+        new MinesCommand(plugin);
     }
 }

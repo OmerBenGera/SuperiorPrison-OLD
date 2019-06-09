@@ -8,21 +8,12 @@ import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 import java.util.HashSet;
 import java.util.Set;
 
-public class TaskManager extends BukkitRunnable implements BaseManager {
+public final class TaskManager extends BukkitRunnable{
 
-    private SuperiorPrisonPlugin loader;
+    private Set<Task> tasks = new HashSet<>();
 
-    private Set<Task> tasks;
-
-    public TaskManager(SuperiorPrisonPlugin loader) {
-        this.loader = loader;
-    }
-
-    @Override
-    public void load() {
-        tasks = new HashSet<>();
-
-        runTaskTimer(loader, 100, 20);
+    public TaskManager(SuperiorPrisonPlugin plugin) {
+        runTaskTimer(plugin, 100, 20);
     }
 
     @Override
@@ -40,7 +31,6 @@ public class TaskManager extends BukkitRunnable implements BaseManager {
         tasks.removeAll(remove);
     }
 
-    @Override
     public void save() {
         cancel();
     }

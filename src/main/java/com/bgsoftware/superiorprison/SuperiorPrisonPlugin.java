@@ -20,7 +20,6 @@ public final class SuperiorPrisonPlugin extends JavaPlugin {
     private static Economy economy;
 
     private FileManager fileManager;
-    private CommandManager commandManager;
     private RankManager rankManager;
     private MineManager mineManager;
     private MenuManager menuManager;
@@ -41,12 +40,13 @@ public final class SuperiorPrisonPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new TasksListener(this), this);
 
         fileManager = new FileManager(this);
-        commandManager = new CommandManager(this);
         rankManager = new RankManager(this);
         mineManager = new MineManager(this);
-        menuManager = new MenuManager(this);
+        menuManager = new MenuManager();
         taskManager = new TaskManager(this);
         playerManager = new PlayerManager(this);
+
+        new CommandManager(this);
     }
 
     @Override
@@ -81,10 +81,6 @@ public final class SuperiorPrisonPlugin extends JavaPlugin {
 
     public FileManager getFileManager() {
         return fileManager;
-    }
-
-    public CommandManager getCommandManager() {
-        return commandManager;
     }
 
     public RankManager getRankManager() {

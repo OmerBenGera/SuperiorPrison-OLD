@@ -2,27 +2,18 @@ package com.bgsoftware.superiorprison.managers;
 
 import com.bgsoftware.superiorprison.gui.menus.Menu;
 import org.bukkit.inventory.Inventory;
-import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class MenuManager implements BaseManager {
+public final class MenuManager {
 
-    private SuperiorPrisonPlugin loader;
+    private Set<Menu> menus = new HashSet<>();
 
-    private Set<Menu> menus;
+    public MenuManager() {
 
-    public MenuManager(SuperiorPrisonPlugin loader) {
-        this.loader = loader;
     }
 
-    @Override
-    public void load() {
-        menus = new HashSet<>();
-    }
-
-    @Override
     public void save() {
         for (Menu menu : menus)
             menu.close();
