@@ -7,8 +7,8 @@ import com.bgsoftware.superiorprison.gui.buttons.mines.editor.BlockRateButton;
 import com.bgsoftware.superiorprison.gui.menus.ListMenu;
 import com.bgsoftware.superiorprison.objects.mines.BlockRate;
 import com.bgsoftware.superiorprison.objects.mines.Mine;
-import com.bgsoftware.superiorprison.utils.XMaterial;
 import lombok.Getter;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
@@ -50,7 +50,7 @@ public class GeneratorEditor extends ListMenu {
     public void onClick(InventoryClickEvent event) {
 
         if (event.getCurrentItem() != null && !event.getClickedInventory().equals(event.getInventory())) {
-            mine.getBlockGenerator().getRates().add(new BlockRate(XMaterial.valueOf(event.getCurrentItem()), 0));
+            mine.getBlockGenerator().getRates().add(new BlockRate(event.getCurrentItem().getType(), 0));
             update();
         }
 

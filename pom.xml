@@ -48,11 +48,6 @@
             <id>vault-repo</id>
             <url>http://nexus.hc.to/content/repositories/pub_releases</url>
         </repository>
-        <!--Anvil API-->
-        <repository>
-            <id>wesjd-repo</id>
-            <url>https://nexus.wesjd.net/repository/thirdparty/</url>
-        </repository>
     </repositories>
 
     <dependencies>
@@ -83,12 +78,6 @@
             <artifactId>VaultAPI</artifactId>
             <version>1.7</version>
             <scope>provided</scope>
-        </dependency>
-        <!--Anvil GUI-->
-        <dependency>
-            <groupId>net.wesjd</groupId>
-            <artifactId>anvilgui</artifactId>
-            <version>1.2.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

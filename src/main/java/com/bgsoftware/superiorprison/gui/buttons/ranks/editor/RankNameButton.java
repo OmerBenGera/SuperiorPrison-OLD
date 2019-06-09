@@ -4,14 +4,14 @@ import com.bgsoftware.superiorprison.gui.buttons.ranks.RankButton;
 import com.bgsoftware.superiorprison.gui.menus.types.ranks.RankEditor;
 import com.bgsoftware.superiorprison.tasks.player.edit.ranks.RankNameEditTask;
 import com.bgsoftware.superiorprison.utils.ItemUtils;
-import com.bgsoftware.superiorprison.utils.XMaterial;
+import org.bukkit.Material;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import com.bgsoftware.superiorprison.SuperiorPrisonPlugin;
 
 public class RankNameButton extends RankButton {
 
     public RankNameButton(RankEditor menu) {
-        super(menu, menu.getRank(), ItemUtils.build(XMaterial.NAME_TAG, "§e§lChange Name", "", "§7Value: §e" + menu.getRank().getName(), "", "§aClick to Edit"));
+        super(menu, menu.getRank(), ItemUtils.build(Material.NAME_TAG, 0, "§e§lChange Name", "", "§7Value: §e" + menu.getRank().getName(), "", "§aClick to Edit"));
     }
 
     @Override

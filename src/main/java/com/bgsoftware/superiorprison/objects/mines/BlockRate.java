@@ -1,8 +1,8 @@
 package com.bgsoftware.superiorprison.objects.mines;
 
-import com.bgsoftware.superiorprison.utils.XMaterial;
 import lombok.Getter;
 import lombok.Setter;
+import org.bukkit.Material;
 import org.bukkit.configuration.serialization.ConfigurationSerializable;
 
 import java.util.HashMap;
@@ -12,20 +12,20 @@ import java.util.Map;
 @Setter
 public class BlockRate implements ConfigurationSerializable {
 
-    private XMaterial material;
+    private Material material;
     private double rate;
 
     public BlockRate() {
-        material = XMaterial.STONE;
+        material = Material.STONE;
         rate = 0;
     }
 
     public BlockRate(Map<String, Object> map) {
-        material = XMaterial.valueOf((String) map.get("material"));
+        material = Material.valueOf((String) map.get("material"));
         rate = (double) map.get("rate");
     }
 
-    public BlockRate(XMaterial material, double rate) {
+    public BlockRate(Material material, double rate) {
         this.material = material;
         this.rate = rate;
     }

@@ -1,11 +1,11 @@
 package com.bgsoftware.superiorprison.gui.buttons.general;
 
 import lombok.Getter;
+import org.bukkit.Material;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import com.bgsoftware.superiorprison.gui.buttons.Button;
 import com.bgsoftware.superiorprison.gui.menus.ListMenu;
 import com.bgsoftware.superiorprison.utils.ItemUtils;
-import com.bgsoftware.superiorprison.utils.XMaterial;
 
 @Getter
 public class ScrollButton extends Button {
@@ -13,7 +13,7 @@ public class ScrollButton extends Button {
     private ScrollAction action;
 
     public ScrollButton(ListMenu menu, ScrollAction action) {
-        super(menu, ItemUtils.build(XMaterial.YELLOW_STAINED_GLASS_PANE, action.getDisplay()));
+        super(menu, ItemUtils.build(Material.STAINED_GLASS_PANE, 4, action.getDisplay()));
         this.action = action;
     }
 

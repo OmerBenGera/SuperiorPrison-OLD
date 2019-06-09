@@ -5,7 +5,7 @@ import com.bgsoftware.superiorprison.objects.Prisoner;
 import com.bgsoftware.superiorprison.objects.ranks.Rank;
 import com.bgsoftware.superiorprison.setup.Message;
 import com.bgsoftware.superiorprison.utils.ItemUtils;
-import com.bgsoftware.superiorprison.utils.XMaterial;
+import org.bukkit.Material;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -33,7 +33,7 @@ public class RankDisplayButton extends RankButton {
     private static ItemStack getItem(Prisoner prisoner, Rank rank) {
         boolean unlocked = !(prisoner.getRank() == null || !prisoner.getRank().isHigherThan(rank));
 
-        XMaterial material = unlocked ? XMaterial.LIME_DYE : XMaterial.GRAY_DYE;
+        int data = unlocked ? 10 : 8;
         String[] lore;
 
         if (unlocked)
@@ -49,6 +49,6 @@ public class RankDisplayButton extends RankButton {
                     prisoner.getNextRank().equals(rank) ? (prisoner.hasEnoughMoney(rank.getPrice()) ? "§9Click to Rank-Up" : "§cYou Don't Have Enough Money to Rank-Up") : "§cLocked"
             };
 
-        return ItemUtils.build(material, "§e§l" + rank.getName(), lore);
+        return ItemUtils.build(Material.INK_SACK, data, "§e§l" + rank.getName(), lore);
     }
 }

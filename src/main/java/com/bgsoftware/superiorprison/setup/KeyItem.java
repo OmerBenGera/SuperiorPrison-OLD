@@ -1,14 +1,14 @@
 package com.bgsoftware.superiorprison.setup;
 
 import com.bgsoftware.superiorprison.utils.ItemUtils;
-import com.bgsoftware.superiorprison.utils.XMaterial;
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public enum KeyItem {
 
-    REGION_TOOL(ItemUtils.build(XMaterial.GOLDEN_AXE, "§6Region Tool")),
-    BTN_CONFIRM(ItemUtils.build(XMaterial.GREEN_STAINED_GLASS_PANE, "§aConfirm")),
-    BTN_CANCEL(ItemUtils.build(XMaterial.RED_STAINED_GLASS_PANE, "§cCancel"));
+    REGION_TOOL(ItemUtils.build(Material.GOLD_AXE, 0, "§6Region Tool")),
+    BTN_CONFIRM(ItemUtils.build(Material.STAINED_GLASS_PANE, 5, "§aConfirm")),
+    BTN_CANCEL(ItemUtils.build(Material.STAINED_GLASS_PANE, 14, "§cCancel"));
 
     private ItemStack item;
 

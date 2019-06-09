@@ -60,7 +60,7 @@ public class BlockGenerator {
         int volume = region.getVolume();
 
         for (BlockRate rate : rates) {
-            Material material = rate.getMaterial().parseMaterial();
+            Material material = rate.getMaterial();
             int amount = (int) ((rate.getRate() / 100.0) * volume);
             for (int i = 0; i < amount; i++) {
                 materials.add(material);
